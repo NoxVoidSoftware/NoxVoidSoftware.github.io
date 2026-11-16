@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <title>ClientStatus: Lightweight Client Portals &amp; Milestone Tracking — NoxVoid Software</title>
+  <meta name="description" content="ClientStatus sits on top of Google Sheets and existing tools to give clients self-serve progress tracking, milestone pipelines, and deliverable downloads with zero logins.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="product">
+  <meta property="og:title" content="ClientStatus — Client Portals & Order Status Tracking">
+  <meta property="og:description" content="Stop answering 'any updates yet?' ten times a day. Share a link, clients check status themselves. 2-way Google Sheets sync.">
+  <meta property="og:url" content="https://noxvoidsoftware.github.io/clientstatus.html">
+</head>
+<body>
+  <div class="site-wrapper">
+    <!-- Header -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="index.html" class="brand-logo" aria-label="NoxVoid Software Home">
+          <img src="assets/logo.svg" alt="NoxVoid Logo" class="brand-icon" width="34" height="34">
+          <span class="brand-name">NoxVoid <span class="brand-sub">Software</span></span>
+        </a>
+        <nav class="site-nav">
+          <ul class="nav-list">
+            <li><a href="index.html#products" class="active">Cloud Apps</a></li>
+            <li><a href="index.html#atlassian">Jira Apps</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="index.html#contact" class="btn btn-sm btn-outline">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section class="product-hero">
+        <div class="container">
+          <div class="breadcrumb-nav">
+            <a href="index.html" class="breadcrumb-link">&larr; Back to NoxVoid Overview</a>
+          </div>
+
+          <div style="display: flex; gap: 0.65rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.25rem;">
+            <div class="badge-pill" style="margin-bottom: 0;">
+              <span class="badge-dot" aria-hidden="true"></span>
+              <span>Client Portal SaaS</span>
+            </div>
+            <div class="badge-pill" style="margin-bottom: 0; border-color: rgba(56, 189, 248, 0.4); background: rgba(56, 189, 248, 0.08);">
+              <span class="badge-dot" style="background-color: #38bdf8;" aria-hidden="true"></span>
+              <span style="color: #38bdf8; font-weight: 600;">Google Sheets 2-Way Sync</span>
+            </div>
+          </div>
+
+          <h1 class="hero-title" style="margin-bottom: 0.75rem; font-size: clamp(1.85rem, 4vw, 2.75rem);">
+            Stop answering "any updates yet?" ten times a day.
+          </h1>
+          <p class="hero-lead" style="max-width: 780px; margin-inline: auto;">
+            ClientStatus is a lightweight client portal that sits on top of your existing spreadsheets. Share a link. Clients check order progress and download deliverables themselves. You get your inbox back.
+          </p>
+
+          <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 1.75rem; flex-wrap: wrap;">
+            <a href="https://clientstatus.cloud/en/signup" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+              <span>Start Free on clientstatus.cloud</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+            </a>
+            <a href="https://clientstatus.cloud/en/c/demoportal" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+              <span>View Live Demo Portal &rarr;</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Main Content Details -->
+      <section class="container product-details-container">
+        <div class="product-main-content">
+          <h2>The Frictionless Client Communication Layer</h2>
+          <p style="color: var(--text-secondary); margin-top: 0.75rem; font-size: 1.0625rem; line-height: 1.7;">
+            Clients hate creating accounts or learning heavy project management software just to check on a deliverable. At the same time, giving them raw access to internal spreadsheets exposes sensitive margins, formulas, and other client data. ClientStatus bridges this gap with beautiful, branded, tokenized client portals updated directly from your Google Sheet.
+          </p>
+
+          <div class="features-list">
+            <div class="feature-box">
+              <h4 style="color: var(--accent);">1. Live Google Sheets 2-Way Sync</h4>
+              <p>
+                Connect your spreadsheet with Google OAuth. Update rows in your sheet internally — status percentages, notes, and milestones update on the client portal in real time.
+              </p>
+            </div>
+
+            <div class="feature-box">
+              <h4 style="color: var(--accent);">2. Zero Client Logins</h4>
+              <p>
+                Clients never have to sign up, remember passwords, or download apps. Each project gets a secure, private tokenized URL (e.g. <code>clientstatus.cloud/c/{token}</code>).
+              </p>
+            </div>
+
+            <div class="feature-box">
+              <h4 style="color: var(--accent);">3. Milestone Progress Timelines</h4>
+              <p>
+                Visual progress bars (e.g. <em>60% Complete</em>) and custom pipeline stages (<em>Planning</em> &rarr; <em>Design</em> &rarr; <em>Development</em> &rarr; <em>QA</em> &rarr; <em>Delivered</em>).
+              </p>
+            </div>
+
+            <div class="feature-box">
+              <h4 style="color: var(--accent);">4. Deliverable File Sharing</h4>
+              <p>
+                Attach contracts, PDFs, mockups, and final exports directly to client portals with 1-click downloads up to 100 GB.
+              </p>
+            </div>
+
+            <div class="feature-box">
+              <h4 style="color: var(--accent);">5. Timestamped Update Notes</h4>
+              <p>
+                Leave quick progress notes (e.g. <em>"Wireframes approved. Moving to high-fidelity design phase"</em>) without typing repetitive individual client emails.
+              </p>
+            </div>
+
+            <div class="feature-box">
+              <h4 style="color: var(--accent);">6. White-Label Branding</h4>
+              <p>
+                Custom logo, custom brand color themes, and total removal of platform branding on Pro and Enterprise tiers for agencies.
+              </p>
+            </div>
+          </div>
+
+          <!-- Target Audiences -->
+          <div class="about-card" style="margin-top: 2.5rem; padding: 2rem;">
+            <h3 style="margin: 0 0 1.25rem 0; font-size: 1.35rem; color: var(--text-primary);">Who Uses ClientStatus?</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem;">
+              <div>
+                <strong style="color: var(--accent); display: block; margin-bottom: 0.35rem;">Freelancers &amp; Solo Pros</strong>
+                <p style="color: var(--text-secondary); font-size: 0.9375rem; line-height: 1.5; margin: 0;">
+                  Look ultra-professional with dedicated project portals without paying for complex enterprise suites.
+                </p>
+              </div>
+              <div>
+                <strong style="color: var(--accent); display: block; margin-bottom: 0.35rem;">Agencies &amp; Studios</strong>
+                <p style="color: var(--text-secondary); font-size: 0.9375rem; line-height: 1.5; margin: 0;">
+                  Manage dozens of client retainers and project sprints from one single agency master Google Sheet.
+                </p>
+              </div>
+              <div>
+                <strong style="color: var(--accent); display: block; margin-bottom: 0.35rem;">Service &amp; Repair Shops</strong>
+                <p style="color: var(--text-secondary); font-size: 0.9375rem; line-height: 1.5; margin: 0;">
+                  Give customers 24/7 order and repair tracking by ticket number to stop non-stop inbound phone calls.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pricing Overview Table -->
+          <div style="margin-top: 3rem;">
+            <h3>Transparent Pricing Tiers</h3>
+            <p style="color: var(--text-secondary); margin-bottom: 1.25rem;">Scale smoothly from a free starter tier to high-volume agency operations.</p>
+            
+            <div style="overflow-x: auto;">
+              <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9375rem;">
+                <thead>
+                  <tr style="border-bottom: 2px solid var(--border-strong); color: var(--text-primary);">
+                    <th style="padding: 0.75rem 0.5rem;">Plan</th>
+                    <th style="padding: 0.75rem 0.5rem;">Price</th>
+                    <th style="padding: 0.75rem 0.5rem;">Active Orders</th>
+                    <th style="padding: 0.75rem 0.5rem;">Storage &amp; Sync</th>
+                  </tr>
+                </thead>
+                <tbody style="color: var(--text-secondary);">
+                  <tr style="border-bottom: 1px solid var(--border-subtle);">
+                    <td style="padding: 0.75rem 0.5rem; font-weight: 600; color: var(--text-primary);">Free</td>
+                    <td style="padding: 0.75rem 0.5rem; color: #10b981; font-weight: 600;">$0 / mo</td>
+                    <td style="padding: 0.75rem 0.5rem;">Up to 10 active orders</td>
+                    <td style="padding: 0.75rem 0.5rem;">Public portals, manual updates</td>
+                  </tr>
+                  <tr style="border-bottom: 1px solid var(--border-subtle);">
+                    <td style="padding: 0.75rem 0.5rem; font-weight: 600; color: var(--text-primary);">Starter</td>
+                    <td style="padding: 0.75rem 0.5rem; font-weight: 600;">$19 / mo</td>
+                    <td style="padding: 0.75rem 0.5rem;">Up to 100 active orders</td>
+                    <td style="padding: 0.75rem 0.5rem;">Google Sheets 2-way sync, 10 GB storage</td>
+                  </tr>
+                  <tr style="border-bottom: 1px solid var(--border-subtle); background-color: rgba(56, 189, 248, 0.04);">
+                    <td style="padding: 0.75rem 0.5rem; font-weight: 600; color: var(--accent);">Pro (Popular)</td>
+                    <td style="padding: 0.75rem 0.5rem; font-weight: 600; color: var(--accent);">$49 / mo</td>
+                    <td style="padding: 0.75rem 0.5rem;">Unlimited active orders</td>
+                    <td style="padding: 0.75rem 0.5rem;">Fast sync, 100 GB storage, Full White-Label</td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 0.75rem 0.5rem; font-weight: 600; color: var(--text-primary);">Enterprise</td>
+                    <td style="padding: 0.75rem 0.5rem; font-weight: 600;">$12 / user / mo</td>
+                    <td style="padding: 0.75rem 0.5rem;">Unlimited active orders</td>
+                    <td style="padding: 0.75rem 0.5rem;">SAML 2.0 SSO, Unlimited storage, Audit logs</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar / Specs -->
+        <aside class="product-sidebar">
+          <div class="product-sidebar-card">
+            <h4 style="font-size: 1.15rem; color: var(--text-primary); margin-bottom: 0.5rem;">SaaS Specs</h4>
+            
+            <ul class="spec-list">
+              <li class="spec-item">
+                <span class="spec-label">Domain</span>
+                <span class="spec-value">
+                  <a href="https://clientstatus.cloud" target="_blank" rel="noopener" class="product-link" style="font-size: inherit;">clientstatus.cloud</a>
+                </span>
+              </li>
+              <li class="spec-item">
+                <span class="spec-label">Core Integration</span>
+                <span class="spec-value">Google Sheets (OAuth)</span>
+              </li>
+              <li class="spec-item">
+                <span class="spec-label">Publisher</span>
+                <span class="spec-value">NoxVoid Software</span>
+              </li>
+              <li class="spec-item">
+                <span class="spec-label">Client Access</span>
+                <span class="spec-value">Login-free Token URLs</span>
+              </li>
+              <li class="spec-item">
+                <span class="spec-label">Free Plan</span>
+                <span class="spec-value" style="color: #10b981; font-weight: 700;">$0 / mo (10 orders)</span>
+              </li>
+              <li class="spec-item">
+                <span class="spec-label">Data Privacy</span>
+                <span class="spec-value">EU Cloud / GDPR Ready</span>
+              </li>
+              <li class="spec-item">
+                <span class="spec-label">Support</span>
+                <span class="spec-value">
+                  <a href="mailto:support@clientstatus.cloud" class="product-link" style="font-size: inherit;">support@clientstatus.cloud</a>
+                </span>
+              </li>
+            </ul>
+
+            <a href="https://clientstatus.cloud/en/signup" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width: 100%;">
+              Create Free Account
+            </a>
+
+            <a href="https://clientstatus.cloud/en/c/demoportal" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="width: 100%;">
+              Try Live Demo Portal
+            </a>
+          </div>
+        </aside>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>© 2026 NoxVoid Software. All rights reserved.</p>
+        <div style="display: flex; gap: 1.5rem;">
+          <a href="https://clientstatus.cloud/en/privacy" target="_blank" rel="noopener" class="product-link-secondary">Privacy Policy</a>
+          <a href="index.html" class="product-link">Back to Home</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

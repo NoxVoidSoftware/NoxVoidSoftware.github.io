@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" fill="none">
+  <defs>
+    <linearGradient id="nv-grad-primary" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="50%" stop-color="#6366f1"/>
+      <stop offset="100%" stop-color="#a855f7"/>
+    </linearGradient>
+    <linearGradient id="nv-grad-glow" x1="12" y1="8" x2="36" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#6366f1" stop-opacity="0.2"/>
+    </linearGradient>
+    <filter id="nv-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Outer Hexagonal Frame / Portal -->
+  <path d="M24 3 L43 13.5 V34.5 L24 45 L5 34.5 V13.5 Z" stroke="url(#nv-grad-primary)" stroke-width="2.5" stroke-linejoin="round" fill="#090d16" fill-opacity="0.85"/>
+
+  <!-- Geometric NV Monogram & Singularity Prism -->
+  <!-- Left 'N' leg & diagonal -->
+  <path d="M14 34 V15 L25 32" stroke="url(#nv-grad-primary)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Right 'V' & 'N' union line -->
+  <path d="M25 32 L34 15 V33" stroke="url(#nv-grad-primary)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Central Void Core Node (glowing point) -->
+  <circle cx="24" cy="24" r="2.5" fill="#38bdf8" filter="url(#nv-glow)"/>
+  <circle cx="24" cy="24" r="1.5" fill="#ffffff"/>
+</svg>
