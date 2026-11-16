@@ -52,9 +52,9 @@ Send notification emails using Collectly's default service, or plug in your own 
 
 ---
 
-## 100% Free for Jira Cloud Teams
+## Availability & Pricing
 
-Collectly 3.0 is available immediately on the Atlassian Marketplace with a **100% Free Commercial License** for all Jira Cloud tiers.
+Collectly 3.0 is available now on the Atlassian Marketplace. Start on the **free plan** with usage limits, and upgrade to a paid plan billed through Atlassian when your team needs more. See current prices on the [Marketplace pricing page](https://marketplace.atlassian.com/apps/2837900681/collectly-client-forms-document-requests-for-jira?hosting=cloud&tab=pricing).
 
 - **Marketplace Listing**: [Install Collectly on Atlassian Marketplace](https://marketplace.atlassian.com/apps/2837900681/collectly-external-file-collector-client-uploads?hosting=cloud&tab=overview)
 - **Knowledge Base & Documentation**: [Collectly for Jira User Guide](https://decorous-humerus-392.notion.site/Collectly-for-Jira-User-Knowledge-Base-3d6c1158ccb88138b7c6f7e4e52b59c8)
