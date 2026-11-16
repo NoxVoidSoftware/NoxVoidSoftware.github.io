@@ -24,15 +24,44 @@ for (const file of files) {
   const slug = data.slug || path.basename(file, '.md');
   const htmlBody = marked.parse(content);
 
+  const rawTitle = String(data.title || 'Untitled');
+  const rawDescription = String(data.description || '');
+  // gray-matter turns unquoted YAML dates into Date objects — normalize to YYYY-MM-DD
+  const date = data.date instanceof Date
+    ? data.date.toISOString().split('T')[0]
+    : String(data.date || new Date().toISOString().split('T')[0]);
+
   articles.push({
-    title: data.title || 'Untitled',
-    description: data.description || '',
-    date: data.date || new Date().toISOString().split('T')[0],
-    category: data.category || 'General',
-    readTime: data.readTime || '3 min read',
+    title: escapeHtml(rawTitle),
+    description: escapeHtml(rawDescription),
+    titleJson: toJsonLd(rawTitle),
+    descriptionJson: toJsonLd(rawDescription),
+    date,
+    dateDisplay: formatDate(date),
+    category: escapeHtml(data.category || 'General'),
+    readTime: escapeHtml(data.readTime || '3 min read'),
     slug,
     htmlBody,
   });
+}
+
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+// JSON string literal that is safe to embed inside <script type="application/ld+json">
+function toJsonLd(str) {
+  return JSON.stringify(str).replace(/</g, '\\u003c');
+}
+
+function formatDate(isoDate) {
+  const d = new Date(`${isoDate}T00:00:00Z`);
+  if (isNaN(d)) return isoDate;
+  return d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC' });
 }
 
 // Sort by date descending
@@ -46,11 +75,36 @@ for (const art of articles) {
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <!-- Google Consent Mode v2: everything non-essential is denied until the visitor opts in -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    (function () {
+      var c = null;
+      try { c = JSON.parse(localStorage.getItem('nv_consent')); } catch (e) {}
+      var a = c && c.v === 1 && c.analytics ? 'granted' : 'denied';
+      var m = c && c.v === 1 && c.marketing ? 'granted' : 'denied';
+      gtag('consent', 'default', {
+        ad_storage: m, ad_user_data: m, ad_personalization: m,
+        analytics_storage: a,
+        functionality_storage: 'granted', security_storage: 'granted',
+        wait_for_update: 500
+      });
+    })();
+    gtag('set', 'ads_data_redaction', true);
+    dataLayer.push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+  </script>
+  <!-- Google Tag Manager -->
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-M6N9TKNK"></script>
+  <script defer src="../assets/consent.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="color-scheme" content="light dark">
   <title>${art.title} — NoxVoid Blog</title>
   <meta name="description" content="${art.description}">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+  <meta name="theme-color" content="#0a0f1d">
+  <meta property="og:image" content="${BASE_URL}/assets/logo-512.png">
   <link rel="stylesheet" href="../styles.css">
   
   <!-- Open Graph -->
@@ -58,15 +112,15 @@ for (const art of articles) {
   <meta property="og:title" content="${art.title}">
   <meta property="og:description" content="${art.description}">
   <meta property="og:url" content="${BASE_URL}/blog/${art.slug}.html">
-  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:card" content="summary">
 
   <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "headline": "${art.title}",
-    "description": "${art.description}",
+    "headline": ${art.titleJson},
+    "description": ${art.descriptionJson},
     "datePublished": "${art.date}",
     "author": {
       "@type": "Organization",
@@ -112,7 +166,7 @@ for (const art of articles) {
           <div class="blog-meta">
             <span>${art.category}</span>
             <span>•</span>
-            <span>${art.date}</span>
+            <time datetime="${art.date}">${art.dateDisplay}</time>
             <span>•</span>
             <span>${art.readTime}</span>
           </div>
@@ -146,7 +200,7 @@ const blogCardsHtml = articles.map(art => `
               <div class="blog-meta">
                 <span>${art.category}</span>
                 <span>•</span>
-                <span>${art.date}</span>
+                <time datetime="${art.date}">${art.dateDisplay}</time>
                 <span>•</span>
                 <span>${art.readTime}</span>
               </div>
@@ -160,11 +214,36 @@ const blogIndexHtml = `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <!-- Google Consent Mode v2: everything non-essential is denied until the visitor opts in -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    (function () {
+      var c = null;
+      try { c = JSON.parse(localStorage.getItem('nv_consent')); } catch (e) {}
+      var a = c && c.v === 1 && c.analytics ? 'granted' : 'denied';
+      var m = c && c.v === 1 && c.marketing ? 'granted' : 'denied';
+      gtag('consent', 'default', {
+        ad_storage: m, ad_user_data: m, ad_personalization: m,
+        analytics_storage: a,
+        functionality_storage: 'granted', security_storage: 'granted',
+        wait_for_update: 500
+      });
+    })();
+    gtag('set', 'ads_data_redaction', true);
+    dataLayer.push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+  </script>
+  <!-- Google Tag Manager -->
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-M6N9TKNK"></script>
+  <script defer src="assets/consent.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="color-scheme" content="light dark">
   <title>Blog & Studio Updates — NoxVoid Software</title>
   <meta name="description" content="Engineering articles, workflow optimization guides, and studio updates from NoxVoid Software.">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <meta name="theme-color" content="#0a0f1d">
+  <meta property="og:image" content="${BASE_URL}/assets/logo-512.png">
   <link rel="stylesheet" href="styles.css">
   <meta property="og:type" content="website">
   <meta property="og:title" content="NoxVoid Studio Blog">
@@ -246,6 +325,13 @@ const staticPages = [
   { url: 'collectly-jira.html', priority: '0.8', changefreq: 'monthly' },
   { url: 'cyclepulse-jira.html', priority: '0.8', changefreq: 'monthly' },
   { url: 'blog.html', priority: '0.7', changefreq: 'weekly' },
+  { url: 'privacy.html', priority: '0.3', changefreq: 'yearly' },
+  { url: 'privacy-collectly-jira.html', priority: '0.3', changefreq: 'yearly' },
+  { url: 'privacy-cyclepulse.html', priority: '0.3', changefreq: 'yearly' },
+  { url: 'security-cyclepulse.html', priority: '0.3', changefreq: 'yearly' },
+  { url: 'terms-cyclepulse.html', priority: '0.3', changefreq: 'yearly' },
+  { url: 'security-collectly-jira.html', priority: '0.3', changefreq: 'yearly' },
+  { url: 'terms-collectly-jira.html', priority: '0.3', changefreq: 'yearly' },
 ];
 
 const today = new Date().toISOString().split('T')[0];

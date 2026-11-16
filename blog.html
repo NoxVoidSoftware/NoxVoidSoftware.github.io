@@ -2,11 +2,36 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <!-- Google Consent Mode v2: everything non-essential is denied until the visitor opts in -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    (function () {
+      var c = null;
+      try { c = JSON.parse(localStorage.getItem('nv_consent')); } catch (e) {}
+      var a = c && c.v === 1 && c.analytics ? 'granted' : 'denied';
+      var m = c && c.v === 1 && c.marketing ? 'granted' : 'denied';
+      gtag('consent', 'default', {
+        ad_storage: m, ad_user_data: m, ad_personalization: m,
+        analytics_storage: a,
+        functionality_storage: 'granted', security_storage: 'granted',
+        wait_for_update: 500
+      });
+    })();
+    gtag('set', 'ads_data_redaction', true);
+    dataLayer.push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+  </script>
+  <!-- Google Tag Manager -->
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-M6N9TKNK"></script>
+  <script defer src="assets/consent.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="color-scheme" content="light dark">
   <title>Blog & Studio Updates — NoxVoid Software</title>
   <meta name="description" content="Engineering articles, workflow optimization guides, and studio updates from NoxVoid Software.">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <meta name="theme-color" content="#0a0f1d">
+  <meta property="og:image" content="https://noxvoidsoftware.github.io/assets/logo-512.png">
   <link rel="stylesheet" href="styles.css">
   <meta property="og:type" content="website">
   <meta property="og:title" content="NoxVoid Studio Blog">

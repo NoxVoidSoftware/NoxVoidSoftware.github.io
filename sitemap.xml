@@ -43,6 +43,48 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://noxvoidsoftware.github.io/privacy.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://noxvoidsoftware.github.io/privacy-collectly-jira.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://noxvoidsoftware.github.io/privacy-cyclepulse.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://noxvoidsoftware.github.io/terms-collectly-jira.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://noxvoidsoftware.github.io/security-collectly-jira.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://noxvoidsoftware.github.io/terms-cyclepulse.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://noxvoidsoftware.github.io/security-cyclepulse.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
     <loc>https://noxvoidsoftware.github.io/blog/collectly-3-0-release.html</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>monthly</changefreq>

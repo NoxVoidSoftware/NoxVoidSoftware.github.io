@@ -2,6 +2,28 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <!-- Google Consent Mode v2: everything non-essential is denied until the visitor opts in -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    (function () {
+      var c = null;
+      try { c = JSON.parse(localStorage.getItem('nv_consent')); } catch (e) {}
+      var a = c && c.v === 1 && c.analytics ? 'granted' : 'denied';
+      var m = c && c.v === 1 && c.marketing ? 'granted' : 'denied';
+      gtag('consent', 'default', {
+        ad_storage: m, ad_user_data: m, ad_personalization: m,
+        analytics_storage: a,
+        functionality_storage: 'granted', security_storage: 'granted',
+        wait_for_update: 500
+      });
+    })();
+    gtag('set', 'ads_data_redaction', true);
+    dataLayer.push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+  </script>
+  <!-- Google Tag Manager -->
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-M6N9TKNK"></script>
+  <script defer src="assets/consent.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- MANDATORY per modern-web-guidance: Declare support for both light and dark themes to prevent FOUC -->
   <meta name="color-scheme" content="light dark">
@@ -9,6 +31,9 @@
   <title>NoxVoid Software — Cloud Tools & Jira Ecosystem</title>
   <meta name="description" content="NoxVoid Software builds focused SaaS platforms and Atlassian Jira solutions designed for speed, incident transparency, and workflow automation.">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <meta name="theme-color" content="#0a0f1d">
+  <meta property="og:image" content="https://noxvoidsoftware.github.io/assets/logo-512.png">
   <link rel="stylesheet" href="styles.css">
   
   <!-- Open Graph / Meta -->
@@ -251,7 +276,7 @@
               <div class="blog-meta">
                 <span>Product Release</span>
                 <span>•</span>
-                <span>Nov 16, 2026</span>
+                <time datetime="2026-11-16">Nov 16, 2026</time>
                 <span>•</span>
                 <span>4 min read</span>
               </div>
@@ -264,6 +289,8 @@
               <div class="blog-meta">
                 <span>Studio Announcement</span>
                 <span>•</span>
+                <time datetime="2026-11-15">Nov 15, 2026</time>
+                <span>•</span>
                 <span>3 min read</span>
               </div>
               <h3 class="blog-card-title">Introducing NoxVoid Software: Building Focused, Resilient Tools</h3>
@@ -274,6 +301,8 @@
             <a href="blog/jira-cycle-time-guide.html" class="blog-card">
               <div class="blog-meta">
                 <span>Agile Engineering</span>
+                <span>•</span>
+                <time datetime="2026-11-16">Nov 16, 2026</time>
                 <span>•</span>
                 <span>5 min read</span>
               </div>
@@ -307,7 +336,7 @@
               <div class="value-item">
                 <span class="value-num" aria-hidden="true">03</span>
                 <h4>Privacy & Security</h4>
-                <p>Your team's data remains yours. Clear policies, minimal data retention, and zero ad tracking.</p>
+                <p>Your team's data remains yours. Clear policies, minimal data retention, and no tracking without your consent.</p>
               </div>
             </div>
           </div>
@@ -325,14 +354,14 @@
               </p>
 
               <div class="contact-cards-mini">
-                <a href="mailto:support@clientstatus.cloud" class="contact-mini-item">
+                <a href="mailto:support@collectly.cloud" class="contact-mini-item">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                     <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                     <polyline points="22,6 12,13 2,6"></polyline>
                   </svg>
                   <div>
                     <strong style="display:block; font-size:0.9375rem;">Email Support</strong>
-                    <span style="font-size:0.85rem; color:var(--text-secondary);">support@clientstatus.cloud</span>
+                    <span style="font-size:0.85rem; color:var(--text-secondary);">support@collectly.cloud</span>
                   </div>
                 </a>
 
@@ -416,6 +445,8 @@
                   <span class="form-helper">Minimum 10 characters.</span>
                 </div>
 
+                <p class="form-helper">We use your details only to reply to your message. See our <a href="privacy.html">Privacy Policy</a>.</p>
+
                 <div id="form-alert" class="form-status" role="status" aria-live="polite"></div>
 
                 <button type="submit" id="submit-btn" class="btn btn-primary" style="width: 100%;">
@@ -468,6 +499,19 @@
               <li><a href="#about">About Us</a></li>
               <li><a href="https://github.com/NoxVoidSoftware" target="_blank" rel="noopener noreferrer">GitHub</a></li>
               <li><a href="#contact">Contact</a></li>
+              <li><a href="privacy.html">Privacy &amp; Cookies</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h5>Legal — Jira Apps</h5>
+            <ul>
+              <li><a href="privacy-collectly-jira.html">Collectly: Privacy</a></li>
+              <li><a href="terms-collectly-jira.html">Collectly: Terms</a></li>
+              <li><a href="security-collectly-jira.html">Collectly: Security</a></li>
+              <li><a href="privacy-cyclepulse.html">CyclePulse: Privacy</a></li>
+              <li><a href="terms-cyclepulse.html">CyclePulse: Terms</a></li>
+              <li><a href="security-cyclepulse.html">CyclePulse: Security</a></li>
             </ul>
           </div>
         </div>
@@ -475,73 +519,54 @@
     </footer>
   </div>
 
-  <!-- Accessible Form Handling Script with Telegram Dispatch -->
+  <!-- Contact form: posts JSON to a Cloudflare Worker relay (no tokens in the page) -->
   <script>
     const form = document.getElementById('contact-form');
     const alertBox = document.getElementById('form-alert');
     const submitBtn = document.getElementById('submit-btn');
-
-    // Secure Contact Dispatch via Cloudflare Worker (Zero Token Exposure)
+    const submitBtnHtml = submitBtn.innerHTML;
     const CONTACT_ENDPOINT = 'https://contact.clientstatus.cloud';
+    const SUPPORT_EMAIL = 'support@collectly.cloud';
+
+    function showStatus(type, html) {
+      alertBox.className = 'form-status ' + type;
+      alertBox.innerHTML = html;
+    }
 
     form.addEventListener('submit', async function(event) {
       event.preventDefault();
 
       if (!form.checkValidity()) {
         const firstInvalid = form.querySelector(':invalid');
-        if (firstInvalid) {
-          firstInvalid.focus();
-        }
+        if (firstInvalid) firstInvalid.focus();
         return;
       }
 
       submitBtn.disabled = true;
-      submitBtn.innerHTML = 'Sending...';
+      submitBtn.textContent = 'Sending…';
 
-      const name = document.getElementById('contact-name').value.trim();
-      const email = document.getElementById('contact-email').value.trim();
-      const product = document.getElementById('contact-product').value;
-      const message = document.getElementById('contact-message').value.trim();
-
-      const text = `📬 <b>Нове повідомлення з сайту NoxVoid!</b>\n\n` +
-                   `👤 <b>Ім'я:</b> ${name}\n` +
-                   `📧 <b>Email:</b> ${email}\n` +
-                   `🎯 <b>Продукт / Тема:</b> ${product}\n` +
-                   `💬 <b>Повідомлення:</b>\n${message}`;
+      const payload = {
+        name: document.getElementById('contact-name').value.trim(),
+        email: document.getElementById('contact-email').value.trim(),
+        product: document.getElementById('contact-product').value,
+        message: document.getElementById('contact-message').value.trim()
+      };
 
       try {
-        if (CONTACT_ENDPOINT) {
-          const res = await fetch(CONTACT_ENDPOINT, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ name, email, product, message })
-          });
+        const res = await fetch(CONTACT_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        if (!res.ok) throw new Error('Contact endpoint responded with ' + res.status);
 
-          if (!res.ok) {
-            throw new Error('Endpoint dispatch failed');
-          }
-        } else {
-          // If no backend relay is configured yet, open mailto client as reliable fallback
-          const subject = encodeURIComponent(`[NoxVoid] Inquiry regarding ${product}`);
-          const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nProduct: ${product}\n\nMessage:\n${message}`);
-          window.location.href = `mailto:support@clientstatus.cloud?subject=${subject}&body=${body}`;
-        }
-
-        alertBox.className = 'form-status success';
-        alertBox.innerHTML = '<span aria-hidden="true">✓</span> <span>Дякуємо! Повідомлення надіслано. Ми зв\'яжемося з вами найближчим часом.</span>';
-        alertBox.style.display = 'flex';
+        showStatus('success', '<span aria-hidden="true">✓</span> <span>Thanks! Your message has been sent — we\'ll get back to you within 24 hours.</span>');
         form.reset();
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = '<span>Message Sent</span>';
       } catch (err) {
-        alertBox.className = 'form-status error';
-        alertBox.style.backgroundColor = 'rgba(239, 68, 68, 0.1)';
-        alertBox.style.color = '#ef4444';
-        alertBox.style.border = '1px solid rgba(239, 68, 68, 0.3)';
-        alertBox.innerHTML = '<span>Помилка відправки. Напишіть нам напряму: <a href="mailto:support@clientstatus.cloud" style="color:inherit;text-decoration:underline;">support@clientstatus.cloud</a></span>';
-        alertBox.style.display = 'flex';
+        showStatus('error', '<span>Something went wrong sending your message. Please email us directly at <a href="mailto:' + SUPPORT_EMAIL + '">' + SUPPORT_EMAIL + '</a>.</span>');
+      } finally {
         submitBtn.disabled = false;
-        submitBtn.innerHTML = '<span>Send Message</span>';
+        submitBtn.innerHTML = submitBtnHtml;
       }
     });
   </script>
