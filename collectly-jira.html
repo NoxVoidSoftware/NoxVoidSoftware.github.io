@@ -4,15 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="color-scheme" content="light dark">
-  <title>Collectly: External File Collector &amp; Client Uploads — NoxVoid Software</title>
-  <meta name="description" content="Collect files and documents from external clients directly into Jira issues via secure login-free links. Built on Atlassian Forge. Completely free for Jira Cloud.">
+  <title>Collectly: Client Forms &amp; Document Requests for Jira — NoxVoid Software</title>
+  <meta name="description" content="Send clients a secure form for documents and answers, no Jira license needed. Review every answer and request fixes in Jira. Version 3.0.0, 100% Free on Jira Cloud.">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="stylesheet" href="styles.css">
 
   <!-- Open Graph -->
   <meta property="og:type" content="product">
-  <meta property="og:title" content="Collectly: External File Collector & Client Uploads for Jira Cloud">
-  <meta property="og:description" content="Request files and documents from external clients directly into Jira issues without requiring Atlassian accounts. 100% Free.">
+  <meta property="og:title" content="Collectly: Client Forms & Document Requests for Jira">
+  <meta property="og:description" content="One secure link. Clients answer and upload without a login; you review every answer in Jira. 7 field types, automated reminders, BYO cloud storage. 100% Free on Jira Cloud.">
   <meta property="og:url" content="https://noxvoidsoftware.github.io/collectly-jira.html">
 </head>
 <body>
@@ -46,24 +46,36 @@
           <div style="display: flex; gap: 0.65rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.25rem;">
             <div class="badge-pill" style="margin-bottom: 0;">
               <span class="badge-dot" style="background-color: #6366f1;" aria-hidden="true"></span>
-              <span>Atlassian Marketplace App</span>
+              <span>Atlassian Forge App • v3.0.0</span>
             </div>
             <div class="badge-pill" style="margin-bottom: 0; border-color: rgba(16, 185, 129, 0.4); background: rgba(16, 185, 129, 0.08);">
               <span class="badge-dot" style="background-color: #10b981;" aria-hidden="true"></span>
               <span style="color: #10b981; font-weight: 600;">100% Free on Jira Cloud</span>
             </div>
+            <div class="badge-pill" style="margin-bottom: 0; border-color: rgba(59, 130, 246, 0.4); background: rgba(59, 130, 246, 0.08);">
+              <span class="badge-dot" style="background-color: #3b82f6;" aria-hidden="true"></span>
+              <span style="color: #60a5fa; font-weight: 600;">Major 3.0 Release</span>
+            </div>
           </div>
 
           <h1 class="hero-title" style="margin-bottom: 0.75rem; font-size: clamp(1.85rem, 4vw, 2.75rem);">
-            Collectly: External File Collector &amp; Client Uploads
+            Collectly: Client Forms &amp; Document Requests for Jira
           </h1>
-          <p class="hero-lead" style="max-width: 780px; margin-inline: auto;">
-            Collect files, assets, and documents from external clients directly into Jira issues via secure, login-free links. No Atlassian accounts required for external clients.
+          <p class="hero-lead" style="max-width: 820px; margin-inline: auto;">
+            Send clients a secure form for documents and answers, no Jira license needed. Review every answer, approve or request fixes, and let automated reminders chase the rest right inside Jira.
           </p>
 
-          <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 1.75rem; flex-wrap: wrap;">
+          <!-- Key Highlights Badges -->
+          <div style="display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; margin-top: 1.25rem; color: var(--text-secondary); font-size: 0.95rem;">
+            <span>✨ <strong>7 Field Types</strong> &amp; Templates</span>
+            <span>✅ <strong>Approve or Reject</strong> Each Answer</span>
+            <span>⏰ <strong>Automated Reminders</strong> Before Due Date</span>
+            <span>☁️ <strong>BYO Storage</strong> (S3, Azure, GCS, Jira)</span>
+          </div>
+
+          <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 2rem; flex-wrap: wrap;">
             <a href="https://marketplace.atlassian.com/apps/2837900681/collectly-external-file-collector-client-uploads?hosting=cloud&tab=overview" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-              <span>Get Free on Atlassian Marketplace</span>
+              <span>Install Free on Atlassian Marketplace</span>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                 <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                 <polyline points="15 3 21 3 21 9"></polyline>
@@ -74,7 +86,7 @@
               <span>Knowledge Base &rarr;</span>
             </a>
             <a href="collectly.html" class="btn btn-outline">
-              <span>Standalone Cloud Platform</span>
+              <span>Standalone Cloud SaaS</span>
             </a>
           </div>
         </div>
@@ -83,92 +95,148 @@
       <!-- Main Content Details -->
       <section class="container product-details-container">
         <div class="product-main-content">
-          <h2>Eliminate Friction from Client Document Collection</h2>
+          <h2>Stop Chasing Clients over Email for Documents &amp; Answers</h2>
           <p style="color: var(--text-secondary); margin-top: 0.75rem; font-size: 1.0625rem; line-height: 1.7;">
-            Chasing clients, contractors, and external vendors for files is one of the biggest bottlenecks in project delivery. Instead of messy email attachment threads, broken Google Drive permissions, or purchasing expensive Atlassian licenses for third parties, Collectly gives your team a native 1-click upload link generator directly inside Jira issues.
+            Chasing clients, contractors, and external vendors for files and missing information is one of the biggest time sinks in project delivery. Collectly 3.0 transforms document requests into interactive client forms linked directly to Jira work items — showing your team in real time what has arrived, what is approved, and what is still missing.
           </p>
 
-          <div class="features-list">
+          <!-- 3 Pillars Grid -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; margin-top: 2rem; margin-bottom: 2.5rem;">
+            <div class="feature-box" style="margin: 0;">
+              <div style="font-size: 1.5rem; margin-bottom: 0.5rem;" aria-hidden="true">📝</div>
+              <h4 style="color: var(--accent); margin-bottom: 0.5rem;">1. Build a client form in minutes</h4>
+              <p style="font-size: 0.9375rem; line-height: 1.6; color: var(--text-secondary); margin: 0;">
+                Start from a template or build your own: file uploads, text, numbers, dates, yes/no and dropdowns, required or optional. Send one secure link; clients need no Atlassian account or license.
+              </p>
+            </div>
+
+            <div class="feature-box" style="margin: 0;">
+              <div style="font-size: 1.5rem; margin-bottom: 0.5rem;" aria-hidden="true">📥</div>
+              <h4 style="color: var(--accent); margin-bottom: 0.5rem;">2. Answers and files land in Jira</h4>
+              <p style="font-size: 0.9375rem; line-height: 1.6; color: var(--text-secondary); margin: 0;">
+                Clients fill in the form on any device and upload files up to 1 GB. Answers appear on the work item; files go to Jira, Collectly storage, or your own S3, Azure or Google Cloud bucket.
+              </p>
+            </div>
+
+            <div class="feature-box" style="margin: 0;">
+              <div style="font-size: 1.5rem; margin-bottom: 0.5rem;" aria-hidden="true">🔄</div>
+              <h4 style="color: var(--accent); margin-bottom: 0.5rem;">3. Review every answer, chase the rest</h4>
+              <p style="font-size: 0.9375rem; line-height: 1.6; color: var(--text-secondary); margin: 0;">
+                Approve or reject each answer with a comment, and the client fixes only that part. Email reminders before the due date, JQL statuses, and Jira Automation do the follow-up.
+              </p>
+            </div>
+          </div>
+
+          <h3>Deep-Dive Features &amp; Capabilities</h3>
+          <div class="features-list" style="margin-top: 1.25rem;">
             <div class="feature-box">
-              <h4 style="color: var(--accent);">1. Frictionless Client Experience</h4>
+              <h4 style="color: var(--accent);">Seven Rich Field Types</h4>
               <p>
-                Clients and external partners upload documents through a clean, branded upload page with <strong>zero login or password required</strong>. Fully mobile-responsive drag-and-drop.
+                Build comprehensive forms with file uploads, short text, long text, numbers, dates, yes/no toggles, and dropdown selectors. Mark fields as required or optional with custom hint descriptions.
               </p>
             </div>
 
             <div class="feature-box">
-              <h4 style="color: var(--accent);">2. Direct Jira Attachments Sync</h4>
+              <h4 style="color: var(--accent);">Industry Templates &amp; Project Presets</h4>
               <p>
-                Uploaded files bypass your email inbox and are pushed straight into the target Jira issue's attachments list, accompanied by an internal audit confirmation comment.
+                Launch instantly with built-in templates tailored for accounting, lending, legal, and HR onboarding workflows, or save your own reusable project templates.
               </p>
             </div>
 
             <div class="feature-box">
-              <h4 style="color: var(--accent);">3. Granular Security &amp; Control</h4>
+              <h4 style="color: var(--accent);">Item-by-Item Review &amp; Targeted Fixes</h4>
               <p>
-                Configure upload links with custom expiration dates (hours or days), restrict allowed file formats/MIME types (PDF, images, zip), and instantly revoke link access at any moment.
+                Review submissions right inside Jira. Approve valid answers or reject incomplete ones with feedback notes. Clients only re-submit the specific rejected items — no re-doing whole forms.
               </p>
             </div>
 
             <div class="feature-box">
-              <h4 style="color: var(--accent);">4. High Capacity File Transfers</h4>
+              <h4 style="color: var(--accent);">Automated Email Reminders</h4>
               <p>
-                Designed to handle large files, creative briefs, design assets, and multi-file batches smoothly without hitting Jira instance upload hiccups.
+                Set a due date and let Collectly handle chasing. Automated reminder emails go out 3 days and 1 day before the deadline, keeping client submissions on schedule without manual follow-ups.
               </p>
             </div>
 
             <div class="feature-box">
-              <h4 style="color: var(--accent);">5. Zero Licensing Costs</h4>
+              <h4 style="color: var(--accent);">Flexible Storage Choice (BYO Cloud Storage)</h4>
               <p>
-                External contributors do not need Atlassian accounts or Jira seat licenses. The app itself is completely free for all team sizes on Jira Cloud.
+                Choose where uploaded files live: directly as Jira issue attachments, in managed Collectly storage, or connected directly to your company's own AWS S3, Azure Blob, or Google Cloud Storage bucket.
               </p>
             </div>
 
             <div class="feature-box">
-              <h4 style="color: var(--accent);">6. Native Atlassian Forge Architecture</h4>
+              <h4 style="color: var(--accent);">Custom Email Delivery Providers</h4>
               <p>
-                Built natively on Atlassian Forge for enterprise stability, seamless Jira issue panel integration, and compliant data handling.
+                Send notification and reminder emails via Collectly's default service, or connect your own transactional provider account (Resend, SendGrid, or Mailgun) for total domain reputation control.
+              </p>
+            </div>
+
+            <div class="feature-box">
+              <h4 style="color: var(--accent);">Dedicated Project Page &amp; JQL Support</h4>
+              <p>
+                Monitor every active document request across the entire project on a centralized page. Filter and query request states using custom JQL statuses and trigger Jira Automation workflows.
+              </p>
+            </div>
+
+            <div class="feature-box">
+              <h4 style="color: var(--accent);">Zero Client Login &amp; High-Volume Uploads</h4>
+              <p>
+                External contributors never need Atlassian accounts, logins, or paid seat licenses. Mobile-friendly responsive upload portal with support for file sizes up to 1 GB per item.
               </p>
             </div>
           </div>
 
           <!-- Workflow Steps -->
           <div class="about-card" style="margin-top: 2.5rem; padding: 2rem;">
-            <h3 style="margin: 0 0 1.25rem 0; font-size: 1.35rem; color: var(--text-primary);">How It Works in 4 Simple Steps</h3>
+            <h3 style="margin: 0 0 1.25rem 0; font-size: 1.35rem; color: var(--text-primary);">How It Works: End-to-End Workflow</h3>
             
-            <div style="display: flex; flex-direction: column; gap: 1rem;">
+            <div style="display: flex; flex-direction: column; gap: 1.25rem;">
               <div style="display: flex; gap: 1rem; align-items: flex-start;">
                 <span class="value-num" style="font-size: 1rem;">01</span>
                 <div>
-                  <strong style="color: var(--text-primary);">Generate Link:</strong>
-                  <span style="color: var(--text-secondary);"> Open any Jira issue and click "Create Upload Link" inside the Collectly issue panel.</span>
+                  <strong style="color: var(--text-primary);">Create Form on Jira Issue:</strong>
+                  <span style="color: var(--text-secondary);"> Open any Jira issue, select a template or add custom fields (files, text, dates, dropdowns), and set an optional due date.</span>
                 </div>
               </div>
 
               <div style="display: flex; gap: 1rem; align-items: flex-start;">
                 <span class="value-num" style="font-size: 1rem;">02</span>
                 <div>
-                  <strong style="color: var(--text-primary);">Configure Settings:</strong>
-                  <span style="color: var(--text-secondary);"> Set optional expiration date, upload instructions, and allowed file formats.</span>
+                  <strong style="color: var(--text-primary);">Share Secure Link:</strong>
+                  <span style="color: var(--text-secondary);"> Send the personalized link or have Collectly send a branded invitation email. The recipient accesses the form on mobile or desktop without an account.</span>
                 </div>
               </div>
 
               <div style="display: flex; gap: 1rem; align-items: flex-start;">
                 <span class="value-num" style="font-size: 1rem;">03</span>
                 <div>
-                  <strong style="color: var(--text-primary);">Client Uploads:</strong>
-                  <span style="color: var(--text-secondary);"> Send the link to your client via Slack, email, or WhatsApp. They drop files without logging in.</span>
+                  <strong style="color: var(--text-primary);">Review &amp; Approve in Jira:</strong>
+                  <span style="color: var(--text-secondary);"> Submissions appear immediately on the Jira ticket. Review answers, approve valid items, or reject with a feedback note explaining what needs fixing.</span>
                 </div>
               </div>
 
               <div style="display: flex; gap: 1rem; align-items: flex-start;">
                 <span class="value-num" style="font-size: 1rem;">04</span>
                 <div>
-                  <strong style="color: var(--text-primary);">Instant Jira Attachment:</strong>
-                  <span style="color: var(--text-secondary);"> Files appear immediately in the Jira ticket and an internal note confirms the upload.</span>
+                  <strong style="color: var(--text-primary);">Automated Chasing &amp; Storage:</strong>
+                  <span style="color: var(--text-secondary);"> Clients receive automatic reminders before due dates. Approved files flow to your chosen destination (Jira, S3, Azure, or GCS) seamlessly.</span>
                 </div>
               </div>
             </div>
+          </div>
+
+          <!-- Ideal Teams -->
+          <div style="margin-top: 3rem;">
+            <h3>Built for High-Stakes Client Intake Teams</h3>
+            <p style="color: var(--text-secondary); margin-top: 0.5rem; line-height: 1.7;">
+              Collectly is purpose-built for teams that rely on external data to advance internal Jira workflows:
+            </p>
+            <ul style="margin-top: 0.75rem; color: var(--text-secondary); padding-left: 1.5rem; line-height: 1.8;">
+              <li><strong>Accounting &amp; Auditing:</strong> Collect tax returns, bank statements, receipts, and year-end audit confirmations.</li>
+              <li><strong>Lending &amp; Mortgage:</strong> Request W-2s, pay stubs, photo IDs, and credit authorizations with itemized reviews.</li>
+              <li><strong>Legal &amp; Compliance:</strong> Gather NDAs, signed contracts, evidentiary disclosures, and KYC documentation.</li>
+              <li><strong>HR &amp; Client Onboarding:</strong> Streamline contractor onboarding questionnaires, payroll setups, and certifications.</li>
+            </ul>
           </div>
 
           <!-- How to Install -->
@@ -177,9 +245,9 @@
             <ol style="margin-top: 1rem; color: var(--text-secondary); padding-left: 1.5rem; line-height: 1.8;">
               <li>Log in to your <strong>Jira Cloud</strong> instance as an administrator.</li>
               <li>Go to <strong>Apps</strong> &rarr; <strong>Explore new apps</strong>.</li>
-              <li>Search for: <strong>Collectly: External File Collector &amp; Client Uploads</strong>.</li>
-              <li>Click <strong>Get app</strong> (instant activation, 100% free).</li>
-              <li>Open any issue and start requesting files right away!</li>
+              <li>Search for: <strong>Collectly: Client Forms &amp; Document Requests for Jira</strong>.</li>
+              <li>Click <strong>Get app</strong> (instant cloud provisioning, 100% free commercial license).</li>
+              <li>Open any issue and start requesting client forms and documents immediately!</li>
             </ol>
           </div>
         </div>
@@ -195,6 +263,14 @@
                 <span class="spec-value">2837900681</span>
               </li>
               <li class="spec-item">
+                <span class="spec-label">Version</span>
+                <span class="spec-value" style="color: var(--accent); font-weight: 700;">3.0.0 (Latest)</span>
+              </li>
+              <li class="spec-item">
+                <span class="spec-label">Release Date</span>
+                <span class="spec-value">Nov 16, 2026</span>
+              </li>
+              <li class="spec-item">
                 <span class="spec-label">Platform</span>
                 <span class="spec-value">Jira Cloud</span>
               </li>
@@ -203,18 +279,30 @@
                 <span class="spec-value">Atlassian Forge</span>
               </li>
               <li class="spec-item">
-                <span class="spec-label">Vendor</span>
-                <span class="spec-value">
-                  <a href="https://marketplace.atlassian.com/vendors/401220834/noxvoid-software" target="_blank" rel="noopener" class="product-link" style="font-size: inherit;">NoxVoid Software</a>
-                </span>
-              </li>
-              <li class="spec-item">
                 <span class="spec-label">Pricing</span>
                 <span class="spec-value" style="color: #10b981; font-weight: 700;">100% Free</span>
               </li>
               <li class="spec-item">
+                <span class="spec-label">Max File Size</span>
+                <span class="spec-value">Up to 1 GB / file</span>
+              </li>
+              <li class="spec-item">
                 <span class="spec-label">Client Auth</span>
-                <span class="spec-value">No Login Required</span>
+                <span class="spec-value">Zero Login Required</span>
+              </li>
+              <li class="spec-item">
+                <span class="spec-label">Storage</span>
+                <span class="spec-value">Jira, S3, Azure, GCS</span>
+              </li>
+              <li class="spec-item">
+                <span class="spec-label">Email Providers</span>
+                <span class="spec-value">Collectly, Resend, SendGrid, Mailgun</span>
+              </li>
+              <li class="spec-item">
+                <span class="spec-label">Vendor</span>
+                <span class="spec-value">
+                  <a href="https://marketplace.atlassian.com/vendors/401220834/noxvoid-software" target="_blank" rel="noopener" class="product-link" style="font-size: inherit;">NoxVoid Software</a>
+                </span>
               </li>
               <li class="spec-item">
                 <span class="spec-label">Support Email</span>
@@ -232,7 +320,7 @@
               User Documentation
             </a>
 
-            <a href="https://collectly.cloud" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm" style="width: 100%;">
+            <a href="collectly.html" class="btn btn-outline btn-sm" style="width: 100%;">
               Collectly Cloud SaaS &rarr;
             </a>
           </div>

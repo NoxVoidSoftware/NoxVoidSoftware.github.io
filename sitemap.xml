@@ -43,6 +43,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://noxvoidsoftware.github.io/blog/collectly-3-0-release.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://noxvoidsoftware.github.io/blog/jira-cycle-time-guide.html</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>monthly</changefreq>
