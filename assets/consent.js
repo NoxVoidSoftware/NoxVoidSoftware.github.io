@@ -121,6 +121,22 @@
     footer.appendChild(link);
   }
 
+  // Opt-in consent is required in the EEA, UK and Switzerland. The <head> sets
+  // region-based defaults from Google's IP geolocation; here we only decide
+  // whether to pop the banner up. A European time zone is a cheap, private
+  // signal that errs on the side of asking: if it misses an EEA visitor, their
+  // consent still stays "denied" by the regional default.
+  function needsOptIn() {
+    try {
+      var tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+      return /^Europe\//.test(tz) ||
+        /^Atlantic\/(Canary|Madeira|Azores|Reykjavik|Faroe)$/.test(tz) ||
+        /^(Arctic\/Longyearbyen|Asia\/Nicosia|Asia\/Famagusta)$/.test(tz);
+    } catch (e) {
+      return true;
+    }
+  }
+
   function init() {
     addFooterLink();
     document.addEventListener('click', function (e) {
@@ -128,7 +144,7 @@
     });
     var saved = readChoice();
     if (saved) applyChoice(saved);
-    else openBanner(false);
+    else if (needsOptIn()) openBanner(false);
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);

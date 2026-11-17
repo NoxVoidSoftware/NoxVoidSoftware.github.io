@@ -75,21 +75,27 @@ for (const art of articles) {
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <!-- Google Consent Mode v2: everything non-essential is denied until the visitor opts in -->
+  <!-- Google Consent Mode v2: opt-in in the EEA, UK and Switzerland; granted elsewhere unless the visitor opts out -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     (function () {
       var c = null;
       try { c = JSON.parse(localStorage.getItem('nv_consent')); } catch (e) {}
-      var a = c && c.v === 1 && c.analytics ? 'granted' : 'denied';
-      var m = c && c.v === 1 && c.marketing ? 'granted' : 'denied';
-      gtag('consent', 'default', {
-        ad_storage: m, ad_user_data: m, ad_personalization: m,
-        analytics_storage: a,
-        functionality_storage: 'granted', security_storage: 'granted',
-        wait_for_update: 500
-      });
+      var base = { functionality_storage: 'granted', security_storage: 'granted' };
+      function state(a, m) {
+        return { ad_storage: m, ad_user_data: m, ad_personalization: m, analytics_storage: a,
+                 functionality_storage: base.functionality_storage, security_storage: base.security_storage };
+      }
+      if (c && c.v === 1) {
+        gtag('consent', 'default', state(c.analytics ? 'granted' : 'denied', c.marketing ? 'granted' : 'denied'));
+      } else {
+        var optIn = state('denied', 'denied');
+        optIn.region = ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'];
+        optIn.wait_for_update = 500;
+        gtag('consent', 'default', optIn);
+        gtag('consent', 'default', state('granted', 'granted'));
+      }
     })();
     gtag('set', 'ads_data_redaction', true);
     dataLayer.push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
@@ -214,21 +220,27 @@ const blogIndexHtml = `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <!-- Google Consent Mode v2: everything non-essential is denied until the visitor opts in -->
+  <!-- Google Consent Mode v2: opt-in in the EEA, UK and Switzerland; granted elsewhere unless the visitor opts out -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     (function () {
       var c = null;
       try { c = JSON.parse(localStorage.getItem('nv_consent')); } catch (e) {}
-      var a = c && c.v === 1 && c.analytics ? 'granted' : 'denied';
-      var m = c && c.v === 1 && c.marketing ? 'granted' : 'denied';
-      gtag('consent', 'default', {
-        ad_storage: m, ad_user_data: m, ad_personalization: m,
-        analytics_storage: a,
-        functionality_storage: 'granted', security_storage: 'granted',
-        wait_for_update: 500
-      });
+      var base = { functionality_storage: 'granted', security_storage: 'granted' };
+      function state(a, m) {
+        return { ad_storage: m, ad_user_data: m, ad_personalization: m, analytics_storage: a,
+                 functionality_storage: base.functionality_storage, security_storage: base.security_storage };
+      }
+      if (c && c.v === 1) {
+        gtag('consent', 'default', state(c.analytics ? 'granted' : 'denied', c.marketing ? 'granted' : 'denied'));
+      } else {
+        var optIn = state('denied', 'denied');
+        optIn.region = ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'];
+        optIn.wait_for_update = 500;
+        gtag('consent', 'default', optIn);
+        gtag('consent', 'default', state('granted', 'granted'));
+      }
     })();
     gtag('set', 'ads_data_redaction', true);
     dataLayer.push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
