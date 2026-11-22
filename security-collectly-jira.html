@@ -38,14 +38,18 @@
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <meta name="theme-color" content="#0a0f1d">
-  <meta property="og:image" content="https://noxvoidsoftware.github.io/assets/logo-512.png">
   <link rel="stylesheet" href="styles.css">
+
+  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Security — Collectly for Jira">
+  <meta property="og:description" content="How Collectly for Jira protects your Jira data and client submissions: Forge, signed expiring links, encryption, and secure development.">
   <meta property="og:url" content="https://noxvoidsoftware.github.io/security-collectly-jira.html">
+  <meta property="og:image" content="https://noxvoidsoftware.github.io/assets/logo-512.png">
 </head>
 <body>
   <div class="site-wrapper">
+    <!-- Header -->
     <header class="site-header">
       <div class="container header-inner">
         <a href="index.html" class="brand-logo" aria-label="NoxVoid Software Home">
@@ -55,7 +59,7 @@
         <nav class="site-nav" aria-label="Main Navigation">
           <ul class="nav-list">
             <li><a href="index.html#products">Cloud Apps</a></li>
-            <li><a href="index.html#atlassian">Jira Apps</a></li>
+            <li><a href="index.html#atlassian" class="active">Jira Apps</a></li>
             <li><a href="blog.html">Blog</a></li>
             <li><a href="index.html#contact" class="btn btn-sm btn-outline">Contact</a></li>
           </ul>
@@ -79,54 +83,55 @@
         </header>
 
         <div class="article-content">
-          <p>This page describes how <strong>Collectly: Client Forms &amp; Document Requests for Jira</strong> protects your Jira data and the information your clients submit. For what data is collected and why, see the <a href="privacy-collectly-jira.html">Privacy Policy</a>.</p>
+<p>This page describes how <strong>Collectly: Client Forms &amp; Document Requests for Jira</strong> protects your Jira data and the information your clients submit. For what data is collected and why, see the <a href="privacy-collectly-jira.html">Privacy Policy</a>.</p>
+<h2>1. Architecture</h2>
+<ul>
+<li><strong>Jira side — Atlassian Forge.</strong> The Jira part of the App is a Forge app. Requests, form answers, review decisions, and settings are stored in Atlassian&#39;s Forge storage for your site. The App reads and writes only the Jira work items where your team uses it.</li>
+<li><strong>Client portal — collectly.cloud.</strong> Your clients answer and upload through the Collectly portal, hosted on Google Cloud. It receives only what is needed to show a request: title, description, form fields, client name and email, due date, and the client&#39;s answers.</li>
+<li><strong>File storage.</strong> Your Jira administrator chooses where files are kept: Jira attachments, Collectly storage (Cloudflare R2, Western Europe), or your own Amazon S3, Azure Blob Storage, or Google Cloud Storage bucket.</li>
+</ul>
+<h2>2. Data protection</h2>
+<ul>
+<li><strong>Encryption in transit</strong>: all traffic between Jira, collectly.cloud, storage, and your clients&#39; browsers uses TLS.</li>
+<li><strong>Encryption at rest</strong>: files in Collectly storage and data in our database are encrypted at rest by our cloud providers.</li>
+<li><strong>Signed requests</strong>: every call between Jira and collectly.cloud is signed and verified.</li>
+<li><strong>Signed, expiring client links</strong>: each client gets a personal signed link that expires on the request&#39;s due date. Clients do not need an Atlassian account and never get access to your Jira site.</li>
+<li><strong>Encrypted credentials</strong>: credentials for your own storage or email provider are stored encrypted on collectly.cloud and are never shown again in Jira after you save them.</li>
+<li><strong>Short-lived transfer storage</strong>: files on their way to Jira are kept only until they are attached; leftovers are deleted automatically within two days.</li>
+</ul>
+<h2>3. Subprocessors</h2>
+<ul>
+<li><strong>Atlassian</strong> — Forge hosting and storage</li>
+<li><strong>Google Cloud</strong> — client portal hosting and database</li>
+<li><strong>Cloudflare</strong> — Collectly file storage (R2, Western Europe)</li>
+<li><strong>Resend</strong> — client email delivery (unless you connect your own provider)</li>
+</ul>
+<h2>4. Development &amp; access security</h2>
+<ul>
+<li><strong>Multi-factor authentication</strong> is enforced on all accounts used to build, deploy, and operate the App, including source control, cloud consoles, and the Atlassian developer console.</li>
+<li><strong>Automated security scanning</strong>: static code analysis (SAST) and dependency vulnerability scanning (SCA) run in our CI pipeline on every change.</li>
+<li><strong>Least privilege</strong>: the App requests only the Forge permissions it needs. The full list of permissions is shown on the Marketplace listing under &quot;Integration permissions&quot;.</li>
+</ul>
+<h2>5. Incident response</h2>
+<p>If we confirm a security incident that affects your data, we will notify affected customers and Atlassian without undue delay, and share what happened, what data was affected, and what we are doing about it.</p>
+<h2>6. Reporting a vulnerability</h2>
+<p>If you believe you have found a security vulnerability, please email <a href="mailto:support@collectly.cloud">support@collectly.cloud</a> with the subject &quot;Security&quot;, and include a description, steps to reproduce, and a proof of concept if possible. Please do not publicly disclose the issue until we have had a chance to fix it. We will acknowledge your report and keep you updated until it is resolved.</p>
 
-          <h2>1. Architecture</h2>
-          <ul>
-            <li><strong>Jira side — Atlassian Forge.</strong> The Jira part of the App is a Forge app. Requests, form answers, review decisions, and settings are stored in Atlassian's Forge storage for your site. The App reads and writes only the Jira work items where your team uses it.</li>
-            <li><strong>Client portal — collectly.cloud.</strong> Your clients answer and upload through the Collectly portal, hosted on Google Cloud. It receives only what is needed to show a request: title, description, form fields, client name and email, due date, and the client's answers.</li>
-            <li><strong>File storage.</strong> Your Jira administrator chooses where files are kept: Jira attachments, Collectly storage (Cloudflare R2, Western Europe), or your own Amazon S3, Azure Blob Storage, or Google Cloud Storage bucket.</li>
-          </ul>
-
-          <h2>2. Data protection</h2>
-          <ul>
-            <li><strong>Encryption in transit</strong>: all traffic between Jira, collectly.cloud, storage, and your clients' browsers uses TLS.</li>
-            <li><strong>Encryption at rest</strong>: files in Collectly storage and data in our database are encrypted at rest by our cloud providers.</li>
-            <li><strong>Signed requests</strong>: every call between Jira and collectly.cloud is signed and verified.</li>
-            <li><strong>Signed, expiring client links</strong>: each client gets a personal signed link that expires on the request's due date. Clients do not need an Atlassian account and never get access to your Jira site.</li>
-            <li><strong>Encrypted credentials</strong>: credentials for your own storage or email provider are stored encrypted on collectly.cloud and are never shown again in Jira after you save them.</li>
-            <li><strong>Short-lived transfer storage</strong>: files on their way to Jira are kept only until they are attached; leftovers are deleted automatically within two days.</li>
-          </ul>
-
-          <h2>3. Subprocessors</h2>
-          <ul>
-            <li><strong>Atlassian</strong> — Forge hosting and storage</li>
-            <li><strong>Google Cloud</strong> — client portal hosting and database</li>
-            <li><strong>Cloudflare</strong> — Collectly file storage (R2, Western Europe)</li>
-            <li><strong>Resend</strong> — client email delivery (unless you connect your own provider)</li>
-          </ul>
-
-          <h2>4. Development &amp; access security</h2>
-          <ul>
-            <li><strong>Multi-factor authentication</strong> is enforced on all accounts used to build, deploy, and operate the App, including source control, cloud consoles, and the Atlassian developer console.</li>
-            <li><strong>Automated security scanning</strong>: static code analysis (SAST) and dependency vulnerability scanning (SCA) run in our CI pipeline on every change.</li>
-            <li><strong>Least privilege</strong>: the App requests only the Forge permissions it needs. The full list of permissions is shown on the Marketplace listing under "Integration permissions".</li>
-          </ul>
-
-          <h2>5. Incident response</h2>
-          <p>If we confirm a security incident that affects your data, we will notify affected customers and Atlassian without undue delay, and share what happened, what data was affected, and what we are doing about it.</p>
-
-          <h2>6. Reporting a vulnerability</h2>
-          <p>If you believe you have found a security vulnerability, please email <a href="mailto:support@collectly.cloud">support@collectly.cloud</a> with the subject "Security", and include a description, steps to reproduce, and a proof of concept if possible. Please do not publicly disclose the issue until we have had a chance to fix it. We will acknowledge your report and keep you updated until it is resolved.</p>
         </div>
-        <p class="blog-meta" style="margin-top:2.5rem;"><a href="privacy-collectly-jira.html">Privacy Policy</a> <span>•</span> <a href="terms-collectly-jira.html">Terms of Use</a> <span>•</span> <a href="security-collectly-jira.html">Security</a></p>
+        <p class="blog-meta legal-links"><a href="privacy-collectly-jira.html">Privacy Policy</a> <span>•</span> <a href="terms-collectly-jira.html">Terms of Use</a> <span>•</span> <a href="security-collectly-jira.html">Security</a></p>
       </article>
     </main>
 
+    <!-- Footer -->
     <footer class="site-footer">
       <div class="container footer-inner">
         <p>© 2026 NoxVoid Software. All rights reserved.</p>
-        <a href="index.html" class="product-link">Back to Home</a>
+        <div class="footer-links">
+          <a href="privacy-collectly-jira.html" class="product-link-secondary">Privacy Policy</a>
+          <a href="terms-collectly-jira.html" class="product-link-secondary">Terms of Use</a>
+          <a href="security-collectly-jira.html" class="product-link-secondary">Security</a>
+          <a href="index.html" class="product-link">Back to Home</a>
+        </div>
       </div>
     </footer>
   </div>

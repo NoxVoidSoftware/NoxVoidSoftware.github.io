@@ -1,0 +1,111 @@
+{
+  "slug": "cyclepulse",
+  "file": "cyclepulse-jira.html",
+  "name": "CyclePulse",
+  "legalName": "CyclePulse for Jira",
+  "title": "CyclePulse: Time in Status, Lead & Cycle Time Exports",
+  "seo": {
+    "title": "CyclePulse: Time in Status, Lead & Cycle Time Exports",
+    "description": "CyclePulse shows how long Jira issues spend in each status and with each assignee, on your real working hours. Spot bottlenecks, track trends, and use metrics in JQL & Automation.",
+    "ogTitle": "CyclePulse: Time in Status, Lead & Cycle Time Exports for Jira Cloud",
+    "ogDescription": "Time in Status, Lead & Cycle Time on real working hours. 100% Forge native on Atlassian Cloud. Free up to 10 users."
+  },
+  "icon": "assets/apps/cyclepulse.svg",
+  "badges": [
+    { "text": "Atlassian Marketplace App", "tone": "indigo" },
+    { "text": "Runs on Atlassian (100% Forge)", "tone": "green" },
+    { "text": "Free up to 10 users", "tone": "blue" }
+  ],
+  "lead": "Time in Status, Lead & Cycle Time measured on your real working hours. Spot bottlenecks, track sprint trends, measure Flow Efficiency, and use the metrics in JQL, Jira Automation, and Excel exports.",
+  "chips": [
+    { "icon": "📊", "text": "**Average, Median & P85**" },
+    { "icon": "🕘", "text": "**Working-hours** calendars" },
+    { "icon": "🔎", "text": "**JQL-ready** Jira fields" }
+  ],
+  "marketplace": {
+    "url": "https://marketplace.atlassian.com/apps/2654786961/cyclepulse-time-in-status-lead-cycle-time-exports?tab=overview",
+    "label": "Try it Free on Atlassian Marketplace"
+  },
+  "knowledgeBase": "https://decorous-humerus-392.notion.site/CyclePulse-End-User-Knowledge-Base-3d6c1158ccb881a09c29cadfa65a9a4d",
+  "overview": {
+    "heading": "Actionable Delivery Metrics",
+    "text": "CyclePulse gives engineering managers, Scrum masters, and agile teams total visibility into where Jira issues linger. By tracking time in each status and assignee on customizable working calendars, you eliminate guesswork from retrospectives and surface delays before sprint deadlines slip."
+  },
+  "highlights": [
+    {
+      "icon": "⏱️",
+      "title": "See where work gets stuck",
+      "text": "Time in every status with average, median and P85. The slowest status is flagged, rework visits are counted, and one click shows the issues behind any number. Flow Efficiency separates active work from waiting."
+    },
+    {
+      "icon": "🗓️",
+      "title": "Count real working hours, not calendar days",
+      "text": "Set working days, hours and time zone. Add holidays, per-day shifts and overnight schedules. Share one calendar with the whole site, so every report and Jira field runs on the same clock."
+    },
+    {
+      "icon": "🔎",
+      "title": "Lead & Cycle Time as Jira fields",
+      "text": "Two number fields the app keeps up to date. Filter with JQL `\"CyclePulse Lead Time (h)\" > 48`, show them on board cards and dashboards, and alert on slow work with Jira Automation. Backfill existing issues in one click."
+    }
+  ],
+  "features": [
+    {
+      "title": "Time in Status Reports",
+      "text": "Precise time in every status with **Average**, **Median**, and **P85** percentile metrics. Automatically flags the slowest status, counts rework visits, and provides 1-click drill-downs into underlying issues."
+    },
+    {
+      "title": "Real Working Hours, Not Days",
+      "text": "Count only true working hours. Configure business schedules, time zones, statutory holidays, weekend exclusions, and per-day shifts across a shared site-wide calendar."
+    },
+    {
+      "title": "Native Jira Fields & JQL",
+      "text": "Adds fields like `CyclePulse Lead Time (h)` directly to Jira. Filter issues with JQL, display them on agile boards, and trigger Jira Automation rules."
+    },
+    {
+      "title": "Flow Efficiency Analytics",
+      "text": "Measure the ratio of active development work versus waiting time (code review, blocked, QA queues), both per issue and across your entire project."
+    },
+    {
+      "title": "Assignee & Unassigned Duration",
+      "text": "See how long work stays with individual assignees or sits idle in unassigned state to balance team workloads and prevent burnout."
+    },
+    {
+      "title": "Background Excel & CSV Exports",
+      "text": "Export large datasets to **.xlsx** and **.csv** with real-time background progress tracking without freezing your browser."
+    }
+  ],
+  "steps": {
+    "heading": "How It Works",
+    "items": [
+      { "title": "Set your working calendar", "text": "Choose working days, hours, time zone and holidays once for the whole site." },
+      { "title": "Pick a project or JQL", "text": "Open CyclePulse, select a project, board or filter, and the status history is read straight from Jira." },
+      { "title": "Find the bottleneck", "text": "Compare Average, Median and P85 per status, check Flow Efficiency, and drill into the issues behind any number." },
+      { "title": "Act on it in Jira", "text": "Use the Lead & Cycle Time fields in JQL, dashboards and Automation, or export the data to Excel or CSV." }
+    ]
+  },
+  "trust": {
+    "icon": "🛡️",
+    "heading": "100% Forge-Native Architecture",
+    "text": "CyclePulse carries the official **Runs on Atlassian** trust badge. Built exclusively on the Atlassian Forge platform, your company's Jira issue data never leaves Atlassian Cloud: zero external server egress, zero external databases."
+  },
+  "quickstart": {
+    "heading": "Quickstart (Under 60 Seconds)",
+    "steps": [
+      "Log in to your **Jira Cloud** instance as an administrator.",
+      "Open the **Apps** dropdown in the top navigation bar and select **Explore new apps**.",
+      "Search for: **CyclePulse: Time in Status, Lead & Cycle Time Exports**.",
+      "Click **Try it Free** (starts your 30-day free trial).",
+      "Select your agile project and generate your first Flow report immediately!"
+    ]
+  },
+  "specs": [
+    { "label": "App ID", "value": "2654786961" },
+    { "label": "Platform", "value": "Jira Cloud" },
+    { "label": "Architecture", "value": "Atlassian Forge" },
+    { "label": "Free Trial", "value": "30 days" },
+    { "label": "Free Tier", "value": "Free ≤ 10 users", "accent": "green" },
+    { "label": "Paid Pricing", "value": "From $0.45 / user / mo" },
+    { "label": "Export Formats", "value": "Excel (.xlsx), CSV" }
+  ],
+  "supportEmail": "support@collectly.cloud"
+}

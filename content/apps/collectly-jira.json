@@ -1,0 +1,136 @@
+{
+  "slug": "collectly-jira",
+  "file": "collectly-jira.html",
+  "name": "Collectly for Jira",
+  "legalName": "Collectly for Jira",
+  "title": "Collectly: Client Forms & Document Requests for Jira",
+  "seo": {
+    "title": "Collectly: Client Forms & Document Requests for Jira",
+    "description": "Send clients a secure form for documents and answers, no Jira license needed. Review every answer and request fixes in Jira. Version 3.0.0. Free plan available on Jira Cloud.",
+    "ogTitle": "Collectly: Client Forms & Document Requests for Jira",
+    "ogDescription": "One secure link. Clients answer and upload without a login; you review every answer in Jira. 7 field types, automated reminders, BYO cloud storage. Free plan available."
+  },
+  "icon": "assets/apps/collectly-jira.svg",
+  "badges": [
+    { "text": "Atlassian Forge App • v3.0.0", "tone": "indigo" },
+    { "text": "Free Plan Available", "tone": "green" },
+    { "text": "Major 3.0 Release", "tone": "blue" }
+  ],
+  "lead": "Send clients a secure form for documents and answers, no Jira license needed. Review every answer, approve or request fixes, and let automated reminders chase the rest right inside Jira.",
+  "chips": [
+    { "icon": "✨", "text": "**7 Field Types** & Templates" },
+    { "icon": "✅", "text": "**Approve or Reject** Each Answer" },
+    { "icon": "⏰", "text": "**Automated Reminders**" },
+    { "icon": "☁️", "text": "**BYO Storage** (S3, Azure, GCS, Jira)" }
+  ],
+  "marketplace": {
+    "url": "https://marketplace.atlassian.com/apps/2837900681/collectly-external-file-collector-client-uploads?hosting=cloud&tab=overview",
+    "label": "Get it on Atlassian Marketplace"
+  },
+  "knowledgeBase": "https://decorous-humerus-392.notion.site/Collectly-for-Jira-User-Knowledge-Base-3d6c1158ccb88138b7c6f7e4e52b59c8",
+  "extraLinks": [
+    { "label": "Standalone Cloud SaaS", "href": "collectly.html" }
+  ],
+  "overview": {
+    "heading": "Stop Chasing Clients over Email for Documents & Answers",
+    "text": "Chasing clients, contractors, and external vendors for files and missing information is one of the biggest time sinks in project delivery. Collectly 3.0 turns document requests into interactive client forms linked directly to Jira work items, showing your team in real time what has arrived, what is approved, and what is still missing."
+  },
+  "highlights": [
+    {
+      "icon": "📝",
+      "title": "Build a client form in minutes",
+      "text": "Start from a template or build your own: file uploads, text, numbers, dates, yes/no and dropdowns, required or optional. Send one secure link; clients need no Atlassian account or license."
+    },
+    {
+      "icon": "📥",
+      "title": "Answers and files land in Jira",
+      "text": "Clients fill in the form on any device and upload files up to 1 GB. Answers appear on the work item; files go to Jira, Collectly storage, or your own S3, Azure or Google Cloud bucket."
+    },
+    {
+      "icon": "🔄",
+      "title": "Review every answer, chase the rest",
+      "text": "Approve or reject each answer with a comment, and the client fixes only that part. Email reminders before the due date, JQL statuses, and Jira Automation do the follow-up."
+    }
+  ],
+  "features": [
+    {
+      "title": "Seven Rich Field Types",
+      "text": "Build comprehensive forms with file uploads, short text, long text, numbers, dates, yes/no toggles, and dropdown selectors. Mark fields as required or optional with custom hint descriptions."
+    },
+    {
+      "title": "Industry Templates & Project Presets",
+      "text": "Launch instantly with built-in templates tailored for accounting, lending, legal, and HR onboarding workflows, or save your own reusable project templates."
+    },
+    {
+      "title": "Item-by-Item Review & Targeted Fixes",
+      "text": "Review submissions right inside Jira. Approve valid answers or reject incomplete ones with feedback notes. Clients only re-submit the specific rejected items, with no re-doing whole forms."
+    },
+    {
+      "title": "Automated Email Reminders",
+      "text": "Set a due date and let Collectly handle chasing. Automated reminder emails go out 3 days and 1 day before the deadline, keeping client submissions on schedule without manual follow-ups."
+    },
+    {
+      "title": "Flexible Storage Choice (BYO Cloud Storage)",
+      "text": "Choose where uploaded files live: directly as Jira issue attachments, in managed Collectly storage, or in your company's own AWS S3, Azure Blob, or Google Cloud Storage bucket."
+    },
+    {
+      "title": "Custom Email Delivery Providers",
+      "text": "Send notification and reminder emails via Collectly's default service, or connect your own transactional provider account (Resend, SendGrid, or Mailgun) for full control of your domain reputation."
+    },
+    {
+      "title": "Dedicated Project Page & JQL Support",
+      "text": "Monitor every active document request across the entire project on a centralized page. Filter and query request states using custom JQL statuses and trigger Jira Automation workflows."
+    },
+    {
+      "title": "Zero Client Login & High-Volume Uploads",
+      "text": "External contributors never need Atlassian accounts, logins, or paid seat licenses. Mobile-friendly upload portal with support for file sizes up to 1 GB per item."
+    }
+  ],
+  "steps": {
+    "heading": "How It Works",
+    "items": [
+      { "title": "Create a form on a Jira issue", "text": "Open any Jira issue, select a template or add custom fields (files, text, dates, dropdowns), and set an optional due date." },
+      { "title": "Share a secure link", "text": "Send the personalized link or have Collectly send a branded invitation email. The recipient opens the form on mobile or desktop without an account." },
+      { "title": "Review & approve in Jira", "text": "Submissions appear immediately on the Jira ticket. Approve valid items, or reject with a feedback note explaining what needs fixing." },
+      { "title": "Automated chasing & storage", "text": "Clients receive automatic reminders before due dates. Approved files go to your chosen destination (Jira, S3, Azure, or GCS)." }
+    ]
+  },
+  "audience": {
+    "heading": "Built for Client Intake Teams",
+    "intro": "Collectly is purpose-built for teams that rely on external data to advance internal Jira workflows:",
+    "items": [
+      { "title": "Accounting & Auditing", "text": "Collect tax returns, bank statements, receipts, and year-end audit confirmations." },
+      { "title": "Lending & Mortgage", "text": "Request W-2s, pay stubs, photo IDs, and credit authorizations with itemized reviews." },
+      { "title": "Legal & Compliance", "text": "Gather NDAs, signed contracts, evidentiary disclosures, and KYC documentation." },
+      { "title": "HR & Client Onboarding", "text": "Streamline contractor onboarding questionnaires, payroll setups, and certifications." }
+    ]
+  },
+  "trust": {
+    "icon": "🔐",
+    "heading": "Secure by Design",
+    "text": "Collectly runs on Atlassian Forge. Clients reach their form through **signed, expiring links**, files go to the storage **you choose**, and credentials for your own storage and email accounts are **stored encrypted**."
+  },
+  "quickstart": {
+    "heading": "Quickstart",
+    "steps": [
+      "Log in to your **Jira Cloud** instance as an administrator.",
+      "Go to **Apps** → **Explore new apps**.",
+      "Search for: **Collectly: Client Forms & Document Requests for Jira**.",
+      "Click **Get app** and start on the free plan, or [see paid plans](https://marketplace.atlassian.com/apps/2837900681/collectly-client-forms-document-requests-for-jira?hosting=cloud&tab=pricing).",
+      "Open any issue and start requesting client forms and documents immediately!"
+    ]
+  },
+  "specs": [
+    { "label": "App ID", "value": "2837900681" },
+    { "label": "Version", "value": "3.0.0 (Latest)", "accent": "accent" },
+    { "label": "Release Date", "value": "Nov 16, 2026" },
+    { "label": "Platform", "value": "Jira Cloud" },
+    { "label": "Architecture", "value": "Atlassian Forge" },
+    { "label": "Pricing", "value": "Free plan · [Paid via Atlassian](https://marketplace.atlassian.com/apps/2837900681/collectly-client-forms-document-requests-for-jira?hosting=cloud&tab=pricing)" },
+    { "label": "Max File Size", "value": "Up to 1 GB / file" },
+    { "label": "Client Auth", "value": "Zero Login Required" },
+    { "label": "Storage", "value": "Jira, Collectly, S3, Azure, GCS" },
+    { "label": "Email Providers", "value": "Collectly, Resend, SendGrid, Mailgun" }
+  ],
+  "supportEmail": "support@collectly.cloud"
+}

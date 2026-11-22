@@ -34,11 +34,10 @@
   <meta name="color-scheme" content="light dark">
   <title>DomainGuard: Customer Domain Router for JSM — NoxVoid Software</title>
   <meta name="description" content="DomainGuard routes Jira Service Management customers to the right organization by email domain, blocks public email providers, isolates unknown domains, and keeps an audit log.">
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="canonical" href="https://noxvoidsoftware.github.io/domainguard-jira.html">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <meta name="theme-color" content="#0a0f1d">
-  <meta property="og:image" content="https://noxvoidsoftware.github.io/assets/logo-512.png">
   <link rel="stylesheet" href="styles.css">
 
   <!-- Open Graph -->
@@ -46,6 +45,7 @@
   <meta property="og:title" content="DomainGuard: Customer Domain Router for Jira Service Management">
   <meta property="og:description" content="Map email domains to JSM organizations automatically. Freemail Shield, tenant isolation, bulk sync and audit log. 100% Forge native.">
   <meta property="og:url" content="https://noxvoidsoftware.github.io/domainguard-jira.html">
+  <meta property="og:image" content="https://noxvoidsoftware.github.io/assets/logo-512.png">
 </head>
 <body>
   <div class="site-wrapper">
@@ -56,7 +56,7 @@
           <img src="assets/logo.svg" alt="NoxVoid Logo" class="brand-icon" width="34" height="34">
           <span class="brand-name">NoxVoid <span class="brand-sub">Software</span></span>
         </a>
-        <nav class="site-nav">
+        <nav class="site-nav" aria-label="Main Navigation">
           <ul class="nav-list">
             <li><a href="index.html#products">Cloud Apps</a></li>
             <li><a href="index.html#atlassian" class="active">Jira Apps</a></li>
@@ -72,30 +72,32 @@
       <section class="product-hero">
         <div class="container">
           <div class="breadcrumb-nav">
-            <a href="index.html" class="breadcrumb-link">&larr; Back to NoxVoid Overview</a>
+            <a href="index.html#atlassian" class="breadcrumb-link">&larr; All Jira apps</a>
           </div>
-          
+
           <img src="assets/apps/domainguard.svg" alt="DomainGuard icon" class="product-hero-icon" width="72" height="72">
 
-          <div style="display: flex; gap: 0.65rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.25rem;">
-            <div class="badge-pill" style="margin-bottom: 0;">
-              <span class="badge-dot" style="background-color: #6366f1;" aria-hidden="true"></span>
-              <span>Atlassian Marketplace App</span>
+          <div class="badge-row">
+            <div class="badge-pill badge-indigo">
+              <span class="badge-dot" aria-hidden="true"></span>
+              <span>Jira Service Management App</span>
             </div>
-            <div class="badge-pill" style="margin-bottom: 0; border-color: rgba(16, 185, 129, 0.4); background: rgba(16, 185, 129, 0.08);">
-              <span class="badge-dot" style="background-color: #10b981;" aria-hidden="true"></span>
-              <span style="color: #10b981; font-weight: 600;">Runs on Atlassian (100% Forge)</span>
+            <div class="badge-pill badge-green">
+              <span class="badge-dot" aria-hidden="true"></span>
+              <span>Runs on Atlassian (100% Forge)</span>
             </div>
           </div>
 
-          <h1 class="hero-title" style="margin-bottom: 0.75rem; font-size: clamp(1.85rem, 4vw, 2.75rem);">
-            DomainGuard: Customer Domain Router for JSM
-          </h1>
-          <p class="hero-lead" style="max-width: 780px; margin-inline: auto;">
-            Put every Jira Service Management customer in the right organization automatically, based on their email domain. Block Gmail-style public domains, flag unknown domains, and bring existing customers in with one click.
-          </p>
+          <h1 class="hero-title product-title">DomainGuard: Customer Domain Router for JSM</h1>
+          <p class="hero-lead product-lead">Put every Jira Service Management customer in the right organization automatically, based on their email domain. Block Gmail-style public domains, flag unknown domains, and bring existing customers in with one click.</p>
 
-          <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 1.75rem; flex-wrap: wrap;">
+          <div class="hero-chips">
+            <span><span aria-hidden="true">🏢</span> <strong>Up to 500 domains</strong> per organization</span>
+            <span><span aria-hidden="true">🛡️</span> <strong>30,000+</strong> public domains blocked</span>
+            <span><span aria-hidden="true">📜</span> <strong>30-day</strong> audit log</span>
+          </div>
+
+          <div class="hero-actions">
             <a href="https://marketplace.atlassian.com/vendors/401220834/noxvoid-software" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
               <span>Coming soon to Atlassian Marketplace</span>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
@@ -111,76 +113,106 @@
         </div>
       </section>
 
-      <!-- Main Content Details -->
+      <!-- Main content -->
       <section class="container product-details-container">
         <div class="product-main-content">
-          <h2>Overview: The Right Customer in the Right Organization</h2>
-          <p style="color: var(--text-secondary); margin-top: 0.75rem; font-size: 1.0625rem; line-height: 1.7;">
-            In Jira Service Management, organizations decide which customers can see each other's requests. Keeping them up to date by hand is slow and error-prone, and one mistake can show a customer another company's tickets. DomainGuard does it for you: when a request comes in, it reads the reporter's email domain and adds them to the organization you mapped to that domain.
-          </p>
+          <h2>The Right Customer in the Right Organization</h2>
+          <p class="section-lead">In Jira Service Management, organizations decide which customers can see each other&#39;s requests. Keeping them up to date by hand is slow and error-prone, and one mistake can show a customer another company&#39;s tickets. DomainGuard does it for you: when a request comes in, it reads the reporter&#39;s email domain and adds them to the organization you mapped to that domain.</p>
 
+          <div class="highlight-grid">
+            <div class="feature-box highlight-card">
+              <div class="highlight-icon" aria-hidden="true">🏢</div>
+              <h4>Every customer in the right organization</h4>
+              <p>Map e-mail domains to JSM organizations, with optional subdomains. New requesters are added on their first request, and one click syncs the customers you already have.</p>
+            </div>
+            <div class="feature-box highlight-card">
+              <div class="highlight-icon" aria-hidden="true">🚫</div>
+              <h4>Gmail users never join a client org</h4>
+              <p>Freemail Shield blocks 30,000+ public and disposable e-mail domains, plus your own list. Unknown domains are labelled and kept private. Dry-run any address before it arrives.</p>
+            </div>
+            <div class="feature-box highlight-card">
+              <div class="highlight-icon" aria-hidden="true">📜</div>
+              <h4>Every routing decision on record</h4>
+              <p>The audit log shows which organization each request joined and why, or why it was quarantined. E-mail addresses are masked and entries expire after 30 days.</p>
+            </div>
+          </div>
+
+          <h3 class="section-title">Features</h3>
           <div class="features-list">
             <div class="feature-box">
-              <h4 style="color: var(--accent);">1. Domain Mapping Matrix</h4>
-              <p>
-                Map up to <strong>500 email domains</strong> to each JSM organization. Optionally match subdomains, limit a rule to specific service desks, and set a priority for requests from that customer.
-              </p>
+              <h4>1. Domain Mapping Matrix</h4>
+              <p>Map up to <strong>500 email domains</strong> to each JSM organization. Optionally match subdomains, limit a rule to specific service desks, and set a priority for requests from that customer.</p>
             </div>
-
             <div class="feature-box">
-              <h4 style="color: var(--accent);">2. Automatic Routing</h4>
-              <p>
-                Every new request is routed in the background: the reporter joins the right organization and the request's <strong>Organizations</strong> field is set. Auto-sharing and linking the organization to the service desk are opt-in per rule.
-              </p>
+              <h4>2. Automatic Routing</h4>
+              <p>Every new request is routed in the background: the reporter joins the right organization and the request&#39;s <strong>Organizations</strong> field is set. Auto-sharing and linking the organization to the service desk are opt-in per rule.</p>
             </div>
-
             <div class="feature-box">
-              <h4 style="color: var(--accent);">3. Freemail Shield</h4>
-              <p>
-                About <strong>30,000 public email providers</strong> (Gmail, Outlook, Yahoo and more) can never be mapped, so unrelated people are never grouped together. Add your own domains or exceptions; flagged requests get a <code>quarantine-freemail</code> label.
-              </p>
+              <h4>3. Freemail Shield</h4>
+              <p>About <strong>30,000 public email providers</strong> (Gmail, Outlook, Yahoo and more) can never be mapped, so unrelated people are never grouped together. Add your own domains or exceptions; flagged requests get a <code>quarantine-freemail</code> label.</p>
             </div>
-
             <div class="feature-box">
-              <h4 style="color: var(--accent);">4. Tenant Isolation for Unknown Domains</h4>
-              <p>
-                Requests from domains you haven't mapped are tagged <code>unmapped-domain</code>, or fully isolated with <code>quarantine-unmapped</code> and an empty Organizations field until an agent reviews them.
-              </p>
+              <h4>4. Tenant Isolation for Unknown Domains</h4>
+              <p>Requests from domains you haven&#39;t mapped are tagged <code>unmapped-domain</code>, or fully isolated with <code>quarantine-unmapped</code> and an empty Organizations field until an agent reviews them.</p>
             </div>
-
             <div class="feature-box">
-              <h4 style="color: var(--accent);">5. Sync Existing Customers</h4>
-              <p>
-                Added a new rule? One click scans your existing users in the background and adds everyone with a matching domain to the organization, with live progress.
-              </p>
+              <h4>5. Sync Existing Customers</h4>
+              <p>Added a new rule? One click scans your existing users in the background and adds everyone with a matching domain to the organization, with live progress.</p>
             </div>
-
             <div class="feature-box">
-              <h4 style="color: var(--accent);">6. Audit Log &amp; Retry</h4>
-              <p>
-                Every routing decision is logged for 30 days with masked email addresses. Filter by request key or date and retry any request in one click after fixing a rule.
-              </p>
+              <h4>6. Audit Log &amp; Retry</h4>
+              <p>Every routing decision is logged for 30 days with masked email addresses. Filter by request key or date and retry any request in one click after fixing a rule.</p>
             </div>
           </div>
 
-          <!-- Trust & Security -->
-          <div class="about-card" style="margin-top: 2.5rem; padding: 2rem;">
-            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
-              <span style="font-size: 1.5rem;" aria-hidden="true">🛡️</span>
-              <h3 style="margin: 0; font-size: 1.35rem; color: var(--text-primary);">100% Forge-Native Architecture</h3>
+          <div class="about-card product-card-block">
+            <h3>How It Works</h3>
+            <div class="workflow-steps">
+              <div class="workflow-step">
+                <span class="value-num">01</span>
+                <div>
+                  <strong>Map domains:</strong>
+                  <span> Add a rule such as <code>acme.com</code> → the <strong>Acme</strong> organization, with optional subdomains and service desk limits.</span>
+                </div>
+              </div>
+              <div class="workflow-step">
+                <span class="value-num">02</span>
+                <div>
+                  <strong>A request comes in:</strong>
+                  <span> DomainGuard reads the reporter&#39;s email domain in the background as soon as the request is created.</span>
+                </div>
+              </div>
+              <div class="workflow-step">
+                <span class="value-num">03</span>
+                <div>
+                  <strong>Route or protect:</strong>
+                  <span> Mapped domains join their organization; public providers and unknown domains are labelled and, if you choose, kept private.</span>
+                </div>
+              </div>
+              <div class="workflow-step">
+                <span class="value-num">04</span>
+                <div>
+                  <strong>Review the audit log:</strong>
+                  <span> Every decision is recorded with the matched rule and the actions taken. Fix a rule and retry in one click.</span>
+                </div>
+              </div>
             </div>
-            <p style="color: var(--text-secondary); line-height: 1.6; margin: 0;">
-              DomainGuard is eligible for the <strong>Runs on Atlassian</strong> program. Built exclusively on the Atlassian Forge platform, your customers' data never leaves Atlassian Cloud — zero external server egress, zero external databases.
-            </p>
           </div>
 
-          <!-- How to Install -->
-          <div style="margin-top: 3rem;">
+          <div class="about-card product-card-block">
+            <div class="trust-heading">
+              <span aria-hidden="true">🛡️</span>
+              <h3>100% Forge-Native Architecture</h3>
+            </div>
+            <p>DomainGuard is eligible for the <strong>Runs on Atlassian</strong> program. Built exclusively on the Atlassian Forge platform, your customers&#39; data never leaves Atlassian Cloud: zero external server egress, zero external databases.</p>
+          </div>
+
+          <div class="product-section">
             <h3>Quickstart (Under 5 Minutes)</h3>
-            <ol style="margin-top: 1rem; color: var(--text-secondary); padding-left: 1.5rem; line-height: 1.8;">
+            <ol class="product-list">
               <li>Install DomainGuard on your <strong>Jira Service Management Cloud</strong> site as an administrator.</li>
-              <li>Open <strong>Jira Settings &rarr; Apps &rarr; DomainGuard Settings</strong>.</li>
-              <li>Add a domain rule, for example <code>acme.com</code> &rarr; the <strong>Acme</strong> organization.</li>
+              <li>Open <strong>Jira Settings → Apps → DomainGuard Settings</strong>.</li>
+              <li>Add a domain rule, for example <code>acme.com</code> → the <strong>Acme</strong> organization.</li>
               <li>Click <strong>Sync Existing Users</strong> to bring in customers you already have.</li>
               <li>Raise a test request from an <code>@acme.com</code> address and check the Audit Log.</li>
             </ol>
@@ -190,8 +222,7 @@
         <!-- Sidebar / Specs -->
         <aside class="product-sidebar">
           <div class="product-sidebar-card">
-            <h4 style="font-size: 1.15rem; color: var(--text-primary); margin-bottom: 0.5rem;">Marketplace Specs</h4>
-            
+            <h4 class="sidebar-title">Marketplace Specs</h4>
             <ul class="spec-list">
               <li class="spec-item">
                 <span class="spec-label">Platform</span>
@@ -200,12 +231,6 @@
               <li class="spec-item">
                 <span class="spec-label">Architecture</span>
                 <span class="spec-value">Atlassian Forge</span>
-              </li>
-              <li class="spec-item">
-                <span class="spec-label">Vendor</span>
-                <span class="spec-value">
-                  <a href="https://marketplace.atlassian.com/vendors/401220834/noxvoid-software" target="_blank" rel="noopener" class="product-link" style="font-size: inherit;">NoxVoid Software</a>
-                </span>
               </li>
               <li class="spec-item">
                 <span class="spec-label">Domains</span>
@@ -221,17 +246,20 @@
               </li>
               <li class="spec-item">
                 <span class="spec-label">Availability</span>
-                <span class="spec-value" style="color: #10b981;">Marketplace listing in review</span>
+                <span class="spec-value spec-green">Marketplace listing in review</span>
+              </li>
+              <li class="spec-item">
+                <span class="spec-label">Vendor</span>
+                <span class="spec-value"><a href="https://marketplace.atlassian.com/vendors/401220834/noxvoid-software" target="_blank" rel="noopener noreferrer" class="product-link">NoxVoid Software</a></span>
+              </li>
+              <li class="spec-item">
+                <span class="spec-label">Support</span>
+                <span class="spec-value"><a href="mailto:support@collectly.cloud" class="product-link">support@collectly.cloud</a></span>
               </li>
             </ul>
-
-            <a href="index.html#contact" class="btn btn-primary" style="width: 100%;">
-              Contact Us
-            </a>
-
-            <a href="https://decorous-humerus-392.notion.site/DomainGuard-End-User-Knowledge-Base-420c1158ccb8810ab541e43a6b426946" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="width: 100%;">
-              User Documentation
-            </a>
+            <a href="https://marketplace.atlassian.com/vendors/401220834/noxvoid-software" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-block">Coming soon to Atlassian Marketplace</a>
+            <a href="https://decorous-humerus-392.notion.site/DomainGuard-End-User-Knowledge-Base-420c1158ccb8810ab541e43a6b426946" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm btn-block">User Documentation</a>
+            <p class="blog-meta sidebar-legal"><a href="privacy-domainguard.html">Privacy Policy</a> <span>•</span> <a href="terms-domainguard.html">Terms of Use</a> <span>•</span> <a href="security-domainguard.html">Security</a></p>
           </div>
         </aside>
       </section>
@@ -241,7 +269,7 @@
     <footer class="site-footer">
       <div class="container footer-inner">
         <p>© 2026 NoxVoid Software. All rights reserved.</p>
-        <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+        <div class="footer-links">
           <a href="privacy-domainguard.html" class="product-link-secondary">Privacy Policy</a>
           <a href="terms-domainguard.html" class="product-link-secondary">Terms of Use</a>
           <a href="security-domainguard.html" class="product-link-secondary">Security</a>

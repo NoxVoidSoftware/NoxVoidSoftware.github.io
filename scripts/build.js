@@ -328,6 +328,11 @@ ${blogCardsHtml}
 fs.writeFileSync(path.join(ROOT_DIR, 'blog.html'), blogIndexHtml, 'utf-8');
 console.log('Generated blog.html index.');
 
+// 3b. Generate the Jira app product pages and their privacy/terms/security pages
+// from content/apps/*.json and content/legal/ (see scripts/lib/pages.js).
+const { buildAppPages } = require('./lib/pages');
+buildAppPages(ROOT_DIR);
+
 // 4. Generate dynamic sitemap.xml
 const staticPages = [
   { url: '', priority: '1.0', changefreq: 'weekly' },

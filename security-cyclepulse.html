@@ -38,14 +38,18 @@
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <meta name="theme-color" content="#0a0f1d">
-  <meta property="og:image" content="https://noxvoidsoftware.github.io/assets/logo-512.png">
   <link rel="stylesheet" href="styles.css">
+
+  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Security — CyclePulse for Jira">
+  <meta property="og:description" content="CyclePulse runs 100% on Atlassian Forge with no external egress. How we protect your Jira data.">
   <meta property="og:url" content="https://noxvoidsoftware.github.io/security-cyclepulse.html">
+  <meta property="og:image" content="https://noxvoidsoftware.github.io/assets/logo-512.png">
 </head>
 <body>
   <div class="site-wrapper">
+    <!-- Header -->
     <header class="site-header">
       <div class="container header-inner">
         <a href="index.html" class="brand-logo" aria-label="NoxVoid Software Home">
@@ -55,7 +59,7 @@
         <nav class="site-nav" aria-label="Main Navigation">
           <ul class="nav-list">
             <li><a href="index.html#products">Cloud Apps</a></li>
-            <li><a href="index.html#atlassian">Jira Apps</a></li>
+            <li><a href="index.html#atlassian" class="active">Jira Apps</a></li>
             <li><a href="blog.html">Blog</a></li>
             <li><a href="index.html#contact" class="btn btn-sm btn-outline">Contact</a></li>
           </ul>
@@ -79,48 +83,49 @@
         </header>
 
         <div class="article-content">
-          <p>This page describes how <strong>CyclePulse: Time in Status, Lead &amp; Cycle Time Exports</strong> protects your Jira data. For what data is processed and why, see the <a href="privacy-cyclepulse.html">Privacy Policy</a>.</p>
+<p>This page describes how <strong>CyclePulse: Time in Status, Lead &amp; Cycle Time Exports</strong> protects your Jira data. For what data is processed and why, see the <a href="privacy-cyclepulse.html">Privacy Policy</a>.</p>
+<h2>1. Runs on Atlassian</h2>
+<p>CyclePulse is built 100% on Atlassian Forge and carries the <strong>Runs on Atlassian</strong> badge. This means:</p>
+<ul>
+<li>all of the App&#39;s code runs inside Atlassian&#39;s cloud infrastructure;</li>
+<li>the App has no external egress — it does not send your data to any server outside Atlassian;</li>
+<li>the App uses no external databases; reports, settings, and calendars are stored in Forge storage for your site;</li>
+<li>NoxVoid has no copy of your Jira data and no access to it outside your site.</li>
+</ul>
+<p>Hosting, encryption at rest and in transit, and physical security of this infrastructure are provided by Atlassian. See the <a href="https://www.atlassian.com/trust">Atlassian Trust Center</a>.</p>
+<h2>2. Access inside your site</h2>
+<ul>
+<li>Admins choose which Jira groups can share and edit calendars and run exports.</li>
+<li>Lead and Cycle Time values are written only to the App&#39;s own Jira fields.</li>
+</ul>
+<h2>3. Subprocessors</h2>
+<p><strong>Atlassian</strong> is the only subprocessor. The App uses no other third-party services.</p>
+<h2>4. Development &amp; access security</h2>
+<ul>
+<li><strong>Multi-factor authentication</strong> is enforced on all accounts used to build, deploy, and operate the App, including source control, cloud consoles, and the Atlassian developer console.</li>
+<li><strong>Automated security scanning</strong>: static code analysis (SAST) and dependency vulnerability scanning (SCA) run in our CI pipeline on every change.</li>
+<li><strong>Least privilege</strong>: the App requests only the Forge permissions it needs. The full list of permissions is shown on the Marketplace listing under &quot;Integration permissions&quot;.</li>
+</ul>
+<h2>5. Incident response</h2>
+<p>If we confirm a security incident that affects your data, we will notify affected customers and Atlassian without undue delay, and share what happened, what data was affected, and what we are doing about it.</p>
+<h2>6. Reporting a vulnerability</h2>
+<p>If you believe you have found a security vulnerability, please email <a href="mailto:support@collectly.cloud">support@collectly.cloud</a> with the subject &quot;Security&quot;, and include a description, steps to reproduce, and a proof of concept if possible. Please do not publicly disclose the issue until we have had a chance to fix it. We will acknowledge your report and keep you updated until it is resolved.</p>
 
-          <h2>1. Runs on Atlassian</h2>
-          <p>CyclePulse is built 100% on Atlassian Forge and carries the <strong>Runs on Atlassian</strong> badge. This means:</p>
-          <ul>
-            <li>all of the App's code runs inside Atlassian's cloud infrastructure;</li>
-            <li>the App has no external egress — it does not send your data to any server outside Atlassian;</li>
-            <li>the App uses no external databases; reports, settings, and calendars are stored in Forge storage for your site;</li>
-            <li>NoxVoid has no copy of your Jira data and no access to it outside your site.</li>
-          </ul>
-          <p>Hosting, encryption at rest and in transit, and physical security of this infrastructure are provided by Atlassian. See the <a href="https://www.atlassian.com/trust" target="_blank" rel="noopener">Atlassian Trust Center</a>.</p>
-
-          <h2>2. Access inside your site</h2>
-          <ul>
-            <li>Admins choose which Jira groups can share and edit calendars and run exports.</li>
-            <li>Lead and Cycle Time values are written only to the App's own Jira fields.</li>
-          </ul>
-
-          <h2>3. Subprocessors</h2>
-          <p><strong>Atlassian</strong> is the only subprocessor. The App uses no other third-party services.</p>
-
-          <h2>4. Development &amp; access security</h2>
-          <ul>
-            <li><strong>Multi-factor authentication</strong> is enforced on all accounts used to build, deploy, and operate the App, including source control, cloud consoles, and the Atlassian developer console.</li>
-            <li><strong>Automated security scanning</strong>: static code analysis (SAST) and dependency vulnerability scanning (SCA) run in our CI pipeline on every change.</li>
-            <li><strong>Least privilege</strong>: the App requests only the Forge permissions it needs. The full list of permissions is shown on the Marketplace listing under "Integration permissions".</li>
-          </ul>
-
-          <h2>5. Incident response</h2>
-          <p>If we confirm a security incident that affects your data, we will notify affected customers and Atlassian without undue delay, and share what happened, what data was affected, and what we are doing about it.</p>
-
-          <h2>6. Reporting a vulnerability</h2>
-          <p>If you believe you have found a security vulnerability, please email <a href="mailto:support@collectly.cloud">support@collectly.cloud</a> with the subject "Security", and include a description, steps to reproduce, and a proof of concept if possible. Please do not publicly disclose the issue until we have had a chance to fix it. We will acknowledge your report and keep you updated until it is resolved.</p>
         </div>
-        <p class="blog-meta" style="margin-top:2.5rem;"><a href="privacy-cyclepulse.html">Privacy Policy</a> <span>•</span> <a href="terms-cyclepulse.html">Terms of Use</a> <span>•</span> <a href="security-cyclepulse.html">Security</a></p>
+        <p class="blog-meta legal-links"><a href="privacy-cyclepulse.html">Privacy Policy</a> <span>•</span> <a href="terms-cyclepulse.html">Terms of Use</a> <span>•</span> <a href="security-cyclepulse.html">Security</a></p>
       </article>
     </main>
 
+    <!-- Footer -->
     <footer class="site-footer">
       <div class="container footer-inner">
         <p>© 2026 NoxVoid Software. All rights reserved.</p>
-        <a href="index.html" class="product-link">Back to Home</a>
+        <div class="footer-links">
+          <a href="privacy-cyclepulse.html" class="product-link-secondary">Privacy Policy</a>
+          <a href="terms-cyclepulse.html" class="product-link-secondary">Terms of Use</a>
+          <a href="security-cyclepulse.html" class="product-link-secondary">Security</a>
+          <a href="index.html" class="product-link">Back to Home</a>
+        </div>
       </div>
     </footer>
   </div>

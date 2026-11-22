@@ -1,0 +1,109 @@
+{
+  "slug": "domainguard",
+  "file": "domainguard-jira.html",
+  "name": "DomainGuard",
+  "legalName": "DomainGuard for Jira Service Management",
+  "title": "DomainGuard: Customer Domain Router for JSM",
+  "seo": {
+    "title": "DomainGuard: Customer Domain Router for JSM",
+    "description": "DomainGuard routes Jira Service Management customers to the right organization by email domain, blocks public email providers, isolates unknown domains, and keeps an audit log.",
+    "ogTitle": "DomainGuard: Customer Domain Router for Jira Service Management",
+    "ogDescription": "Map email domains to JSM organizations automatically. Freemail Shield, tenant isolation, bulk sync and audit log. 100% Forge native."
+  },
+  "icon": "assets/apps/domainguard.svg",
+  "badges": [
+    { "text": "Jira Service Management App", "tone": "indigo" },
+    { "text": "Runs on Atlassian (100% Forge)", "tone": "green" }
+  ],
+  "lead": "Put every Jira Service Management customer in the right organization automatically, based on their email domain. Block Gmail-style public domains, flag unknown domains, and bring existing customers in with one click.",
+  "chips": [
+    { "icon": "🏢", "text": "**Up to 500 domains** per organization" },
+    { "icon": "🛡️", "text": "**30,000+** public domains blocked" },
+    { "icon": "📜", "text": "**30-day** audit log" }
+  ],
+  "marketplace": {
+    "url": "https://marketplace.atlassian.com/vendors/401220834/noxvoid-software",
+    "label": "Coming soon to Atlassian Marketplace"
+  },
+  "knowledgeBase": "https://decorous-humerus-392.notion.site/DomainGuard-End-User-Knowledge-Base-420c1158ccb8810ab541e43a6b426946",
+  "overview": {
+    "heading": "The Right Customer in the Right Organization",
+    "text": "In Jira Service Management, organizations decide which customers can see each other's requests. Keeping them up to date by hand is slow and error-prone, and one mistake can show a customer another company's tickets. DomainGuard does it for you: when a request comes in, it reads the reporter's email domain and adds them to the organization you mapped to that domain."
+  },
+  "highlights": [
+    {
+      "icon": "🏢",
+      "title": "Every customer in the right organization",
+      "text": "Map e-mail domains to JSM organizations, with optional subdomains. New requesters are added on their first request, and one click syncs the customers you already have."
+    },
+    {
+      "icon": "🚫",
+      "title": "Gmail users never join a client org",
+      "text": "Freemail Shield blocks 30,000+ public and disposable e-mail domains, plus your own list. Unknown domains are labelled and kept private. Dry-run any address before it arrives."
+    },
+    {
+      "icon": "📜",
+      "title": "Every routing decision on record",
+      "text": "The audit log shows which organization each request joined and why, or why it was quarantined. E-mail addresses are masked and entries expire after 30 days."
+    }
+  ],
+  "features": [
+    {
+      "title": "Domain Mapping Matrix",
+      "text": "Map up to **500 email domains** to each JSM organization. Optionally match subdomains, limit a rule to specific service desks, and set a priority for requests from that customer."
+    },
+    {
+      "title": "Automatic Routing",
+      "text": "Every new request is routed in the background: the reporter joins the right organization and the request's **Organizations** field is set. Auto-sharing and linking the organization to the service desk are opt-in per rule."
+    },
+    {
+      "title": "Freemail Shield",
+      "text": "About **30,000 public email providers** (Gmail, Outlook, Yahoo and more) can never be mapped, so unrelated people are never grouped together. Add your own domains or exceptions; flagged requests get a `quarantine-freemail` label."
+    },
+    {
+      "title": "Tenant Isolation for Unknown Domains",
+      "text": "Requests from domains you haven't mapped are tagged `unmapped-domain`, or fully isolated with `quarantine-unmapped` and an empty Organizations field until an agent reviews them."
+    },
+    {
+      "title": "Sync Existing Customers",
+      "text": "Added a new rule? One click scans your existing users in the background and adds everyone with a matching domain to the organization, with live progress."
+    },
+    {
+      "title": "Audit Log & Retry",
+      "text": "Every routing decision is logged for 30 days with masked email addresses. Filter by request key or date and retry any request in one click after fixing a rule."
+    }
+  ],
+  "steps": {
+    "heading": "How It Works",
+    "items": [
+      { "title": "Map domains", "text": "Add a rule such as `acme.com` → the **Acme** organization, with optional subdomains and service desk limits." },
+      { "title": "A request comes in", "text": "DomainGuard reads the reporter's email domain in the background as soon as the request is created." },
+      { "title": "Route or protect", "text": "Mapped domains join their organization; public providers and unknown domains are labelled and, if you choose, kept private." },
+      { "title": "Review the audit log", "text": "Every decision is recorded with the matched rule and the actions taken. Fix a rule and retry in one click." }
+    ]
+  },
+  "trust": {
+    "icon": "🛡️",
+    "heading": "100% Forge-Native Architecture",
+    "text": "DomainGuard is eligible for the **Runs on Atlassian** program. Built exclusively on the Atlassian Forge platform, your customers' data never leaves Atlassian Cloud: zero external server egress, zero external databases."
+  },
+  "quickstart": {
+    "heading": "Quickstart (Under 5 Minutes)",
+    "steps": [
+      "Install DomainGuard on your **Jira Service Management Cloud** site as an administrator.",
+      "Open **Jira Settings → Apps → DomainGuard Settings**.",
+      "Add a domain rule, for example `acme.com` → the **Acme** organization.",
+      "Click **Sync Existing Users** to bring in customers you already have.",
+      "Raise a test request from an `@acme.com` address and check the Audit Log."
+    ]
+  },
+  "specs": [
+    { "label": "Platform", "value": "Jira Service Management Cloud" },
+    { "label": "Architecture", "value": "Atlassian Forge" },
+    { "label": "Domains", "value": "Up to 500 per organization" },
+    { "label": "Public Domains Blocked", "value": "~30,000" },
+    { "label": "Audit Retention", "value": "30 days" },
+    { "label": "Availability", "value": "Marketplace listing in review", "accent": "green" }
+  ],
+  "supportEmail": "support@collectly.cloud"
+}
