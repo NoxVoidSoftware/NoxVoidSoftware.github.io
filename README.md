@@ -1,6 +1,6 @@
 # NoxVoid Software — Official Website & Markdown Blog
 
-Official website for **NoxVoid Software** (`noxvoid.github.io`), featuring all 5 products, dynamic Markdown-powered blog, automated sitemap/robots generation, and GitHub Actions CI/CD deployment.
+Official website of **NoxVoid Software** ([noxvoidsoftware.github.io](https://noxvoidsoftware.github.io)): product pages for our cloud apps and Atlassian Marketplace apps, a Markdown-powered blog, generated legal pages, sitemap and robots.txt, deployed to GitHub Pages by GitHub Actions.
 
 ---
 
