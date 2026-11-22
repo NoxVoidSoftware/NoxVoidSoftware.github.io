@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- DomainGuard icon, gradient shield outline with an "@" (e-mail domain) inside.
+       Palette and background match the Collectly / ClientStatus icons. -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1e3f7c"/>
+      <stop offset="1" stop-color="#0d2250"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.62" r="0.5">
+      <stop offset="0" stop-color="#0a63d6" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#0a63d6" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="mark" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#22c3d6"/>
+      <stop offset="1" stop-color="#43cf80"/>
+    </linearGradient>
+    <clipPath id="tile"><rect width="512" height="512" rx="80"/></clipPath>
+  </defs>
+  <g clip-path="url(#tile)">
+    <rect width="512" height="512" fill="url(#bg)"/>
+    <rect width="512" height="512" fill="url(#glow)"/>
+    <!-- faint diagonal texture, like the Collectly background -->
+    <g stroke="#ffffff" stroke-opacity="0.035" stroke-width="10">
+      <path d="M-60 300 L300 -60 M-60 420 L420 -60 M-60 540 L540 -60 M60 572 L572 60 M180 572 L572 180"/>
+    </g>
+  </g>
+  <!-- shield -->
+  <path d="M256 92 L392 140 V252 C392 340 334 398 256 428 C178 398 120 340 120 252 V140 Z"
+        fill="none" stroke="url(#mark)" stroke-width="30" stroke-linejoin="round"/>
+  <!-- @ -->
+  <g fill="none" stroke="url(#mark)" stroke-width="24" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="252" cy="262" r="36"/>
+    <path d="M288 226 V284 Q288 306 310 306 Q334 306 336 266 A84 84 0 1 0 300 330"/>
+  </g>
+</svg>

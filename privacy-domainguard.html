@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- Google Consent Mode v2: opt-in in the EEA, UK and Switzerland; granted elsewhere unless the visitor opts out -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    (function () {
+      var c = null;
+      try { c = JSON.parse(localStorage.getItem('nv_consent')); } catch (e) {}
+      var base = { functionality_storage: 'granted', security_storage: 'granted' };
+      function state(a, m) {
+        return { ad_storage: m, ad_user_data: m, ad_personalization: m, analytics_storage: a,
+                 functionality_storage: base.functionality_storage, security_storage: base.security_storage };
+      }
+      if (c && c.v === 1) {
+        gtag('consent', 'default', state(c.analytics ? 'granted' : 'denied', c.marketing ? 'granted' : 'denied'));
+      } else {
+        var optIn = state('denied', 'denied');
+        optIn.region = ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'];
+        optIn.wait_for_update = 500;
+        gtag('consent', 'default', optIn);
+        gtag('consent', 'default', state('granted', 'granted'));
+      }
+    })();
+    gtag('set', 'ads_data_redaction', true);
+    dataLayer.push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+  </script>
+  <!-- Google Tag Manager -->
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-M6N9TKNK"></script>
+  <script defer src="assets/consent.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <title>Privacy Policy — DomainGuard for Jira Service Management — NoxVoid Software</title>
+  <meta name="description" content="How DomainGuard (Runs on Atlassian Forge app by NoxVoid Software) handles your Jira Service Management data. Your data stays in Atlassian Cloud.">
+  <link rel="canonical" href="https://noxvoidsoftware.github.io/privacy-domainguard.html">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <meta name="theme-color" content="#0a0f1d">
+  <meta property="og:image" content="https://noxvoidsoftware.github.io/assets/logo-512.png">
+  <link rel="stylesheet" href="styles.css">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Privacy Policy — DomainGuard for Jira Service Management">
+  <meta property="og:url" content="https://noxvoidsoftware.github.io/privacy-domainguard.html">
+</head>
+<body>
+  <div class="site-wrapper">
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="index.html" class="brand-logo" aria-label="NoxVoid Software Home">
+          <img src="assets/logo.svg" alt="NoxVoid Logo" class="brand-icon" width="34" height="34">
+          <span class="brand-name">NoxVoid <span class="brand-sub">Software</span></span>
+        </a>
+        <nav class="site-nav" aria-label="Main Navigation">
+          <ul class="nav-list">
+            <li><a href="index.html#products">Cloud Apps</a></li>
+            <li><a href="index.html#atlassian">Jira Apps</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="index.html#contact" class="btn btn-sm btn-outline">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <article class="container article-container">
+        <div class="breadcrumb-nav">
+          <a href="domainguard-jira.html" class="breadcrumb-link">&larr; Back to DomainGuard</a>
+        </div>
+
+        <header class="article-header">
+          <div class="blog-meta">
+            <span>Legal</span>
+            <span>•</span>
+            <span>Last modified: <time datetime="2026-11-22">November 22, 2026</time></span>
+          </div>
+          <h1 class="article-title">Privacy Policy — DomainGuard for Jira Service Management</h1>
+        </header>
+
+        <div class="article-content">
+          <h2>1. Introduction &amp; scope</h2>
+          <p>NoxVoid Software ("NoxVoid", "we", "us", or "our") respects your privacy. This Privacy Policy explains how <strong>DomainGuard: Customer Domain Router for JSM</strong> (the "App"), an Atlassian Forge app available on the Atlassian Marketplace, handles data from your Jira Service Management (JSM) Cloud site.</p>
+
+          <h2>2. Runs on Atlassian — your data stays in Atlassian Cloud</h2>
+          <p>DomainGuard is built entirely on the Atlassian Forge platform and is eligible for the <strong>Runs on Atlassian</strong> program. The App runs inside Atlassian's infrastructure, has no external server egress, and uses no external databases. NoxVoid does not receive, copy, or store your Jira data on any systems of its own.</p>
+
+          <h2>3. Data the App processes</h2>
+          <p>To route customers to the right JSM organization, the App reads from your Jira site:</p>
+          <ul>
+            <li>the reporter of each new JSM request, including the reporter's email address, which is used only to work out the email domain;</li>
+            <li>request (issue) keys, the project, the Organizations field, labels, and priority;</li>
+            <li>service desks and JSM organizations, so admins can map domains to organizations;</li>
+            <li>when an admin starts a "Sync Existing Users" run, the users on your site and their email addresses, used only to find users whose domain matches the selected rule.</li>
+          </ul>
+          <p>Based on the admin's rules, the App adds customers to JSM organizations, sets the Organizations field on requests, adds labels (for example <code>quarantine-freemail</code> or <code>unmapped-domain</code>), and can change the request priority.</p>
+
+          <h2>4. Data the App stores</h2>
+          <p>The App stores the following in Atlassian's Forge storage for your Jira site:</p>
+          <ul>
+            <li><strong>Domain rules</strong> — email domains, the JSM organization and service desks they map to, and rule options;</li>
+            <li><strong>Settings</strong> — Freemail Shield options, your custom freemail and exception domain lists, and how unmapped domains are handled;</li>
+            <li><strong>Audit log</strong> — one entry per routing decision: request key, a masked reporter email (for example <code>j***@example.com</code>), the matched domain and organization, and the result. Full email addresses are not stored. Audit entries expire automatically after 30 days;</li>
+            <li><strong>Sync status</strong> — progress counters (users scanned and matched) for each sync run;</li>
+            <li><strong>Cache</strong> — a list of service desk IDs, kept for up to one hour.</li>
+          </ul>
+
+          <h2>5. How we use data</h2>
+          <p>Data is processed only to provide the App's features within your Jira site. We do not sell, rent, or monetize your data, and we do not use it for advertising or profiling.</p>
+
+          <h2>6. Subprocessors</h2>
+          <ul>
+            <li><strong>Atlassian</strong> — Forge platform hosting, compute, and storage. Data is handled under <a href="https://www.atlassian.com/legal/privacy-policy" target="_blank" rel="noopener">Atlassian's Privacy Policy</a> and data residency settings for your site.</li>
+          </ul>
+          <p>The App uses no other subprocessors.</p>
+
+          <h2>7. Data retention &amp; deletion</h2>
+          <p>Audit log entries are deleted automatically 30 days after they are written. Rules and settings stay until an admin deletes them. When the App is uninstalled, all App data in Forge storage is removed by Atlassian under its Forge retention rules. Organization memberships, field values, and labels the App set in Jira stay in Jira and can be changed there like any other Jira data.</p>
+
+          <h2>8. Support requests</h2>
+          <p>If you contact us for support, we receive only the information you choose to send us (for example, your email address and a description of the issue), and we use it only to answer your request.</p>
+
+          <h2>9. Your rights (GDPR &amp; CCPA)</h2>
+          <p>Depending on your jurisdiction, you may have the right to access, correct, delete, or export your personal data. Because Jira data processed by the App stays in your Atlassian site, most requests are handled by your Jira administrator or Atlassian. For anything related to the App or your support correspondence with us, contact us at the address below.</p>
+
+          <h2>10. Policy updates</h2>
+          <p>We may update this Privacy Policy from time to time. When we do, we will revise the "Last modified" date at the top of this page.</p>
+
+          <h2>11. Contact</h2>
+          <p>NoxVoid Software — Email: <a href="mailto:support@collectly.cloud">support@collectly.cloud</a></p>
+        </div>
+        <p class="blog-meta" style="margin-top:2.5rem;"><a href="privacy-domainguard.html">Privacy Policy</a> <span>•</span> <a href="terms-domainguard.html">Terms of Use</a> <span>•</span> <a href="security-domainguard.html">Security</a></p>
+      </article>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>© 2026 NoxVoid Software. All rights reserved.</p>
+        <a href="index.html" class="product-link">Back to Home</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1237,3 +1237,26 @@ body {
     flex-direction: column;
   }
 }
+
+/* Real app icons (Atlassian apps): the icon tile replaces the generic outline glyph. */
+.product-icon.app-icon {
+  background: none;
+  border: 0;
+  overflow: hidden;
+}
+
+.product-icon.app-icon img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* App icon above the badges on product pages. */
+.product-hero-icon {
+  display: block;
+  width: 4.5rem;
+  height: 4.5rem;
+  margin: 0 auto 1.25rem;
+  border-radius: 1rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}

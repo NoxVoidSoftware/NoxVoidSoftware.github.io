@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- CyclePulse icon: rising trend arrow over a timeline (lead/cycle time). -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1f3f7b"/>
+      <stop offset="1" stop-color="#0d2149"/>
+    </linearGradient>
+    <linearGradient id="mark" x1="105" y1="300" x2="410" y2="130" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1bbcd6"/>
+      <stop offset="0.5" stop-color="#20c3cc"/>
+      <stop offset="0.8" stop-color="#2dc6aa"/>
+      <stop offset="1" stop-color="#3cc880"/>
+    </linearGradient>
+    <linearGradient id="dash" x1="205" y1="0" x2="309" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#36c99a"/>
+      <stop offset="1" stop-color="#2fbf8c"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#050d24" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+  <rect width="512" height="512" rx="80" fill="url(#bg)"/>
+  <g filter="url(#shadow)">
+    <!-- trend line with arrowhead -->
+    <g fill="none" stroke="url(#mark)" stroke-width="33" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M105 301 L188 216 L255 281 L398 142"/>
+      <path d="M323 138 H402 V212"/>
+    </g>
+    <!-- timeline -->
+    <g stroke-linecap="round">
+      <path d="M98 386 H177 M337 386 H416" stroke="#7d93c4" stroke-opacity="0.38" stroke-width="24"/>
+      <path d="M211 350 H302" stroke="url(#dash)" stroke-width="13"/>
+      <path d="M217 386 H297" stroke="url(#dash)" stroke-width="24"/>
+    </g>
+  </g>
+</svg>
