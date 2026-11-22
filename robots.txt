@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://noxvoidsoftware.github.io/sitemap.xml
