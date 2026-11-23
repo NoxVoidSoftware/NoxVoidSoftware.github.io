@@ -22,8 +22,8 @@
     { "icon": "📜", "text": "**30-day** audit log" }
   ],
   "marketplace": {
-    "url": "https://marketplace.atlassian.com/vendors/401220834/noxvoid-software",
-    "label": "Coming soon to Atlassian Marketplace"
+    "url": "https://marketplace.atlassian.com/apps/1939737654/domainguard-customer-domain-router-for-jsm?tab=overview",
+    "label": "Try it Free on Atlassian Marketplace"
   },
   "knowledgeBase": "https://decorous-humerus-392.notion.site/DomainGuard-End-User-Knowledge-Base-420c1158ccb8810ab541e43a6b426946",
   "overview": {
@@ -91,19 +91,21 @@
     "heading": "Quickstart (Under 5 Minutes)",
     "steps": [
       "Install DomainGuard on your **Jira Service Management Cloud** site as an administrator.",
-      "Open **Jira Settings → Apps → DomainGuard Settings**.",
+      "Open **Jira Settings → Apps → DomainGuard: Customer Domain Router for JSM**.",
       "Add a domain rule, for example `acme.com` → the **Acme** organization.",
       "Click **Sync Existing Users** to bring in customers you already have.",
       "Raise a test request from an `@acme.com` address and check the Audit Log."
     ]
   },
   "specs": [
+    { "label": "App ID", "value": "1939737654" },
     { "label": "Platform", "value": "Jira Service Management Cloud" },
     { "label": "Architecture", "value": "Atlassian Forge" },
     { "label": "Domains", "value": "Up to 500 per organization" },
     { "label": "Public Domains Blocked", "value": "~30,000" },
     { "label": "Audit Retention", "value": "30 days" },
-    { "label": "Availability", "value": "Marketplace listing in review", "accent": "green" }
+    { "label": "Free Trial", "value": "30 days" },
+    { "label": "Availability", "value": "[On Atlassian Marketplace](https://marketplace.atlassian.com/apps/1939737654/domainguard-customer-domain-router-for-jsm?tab=overview)", "accent": "green" }
   ],
   "supportEmail": "support@collectly.cloud"
 }
