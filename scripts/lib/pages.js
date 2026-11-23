@@ -1,7 +1,7 @@
 /**
  * Generators for the Jira app product pages and their legal pages.
  *
- *   content/apps/<slug>.json            -> <app.file>            (product page)
+ *   content/apps/<slug>.json            -> <app.file>            (product page; none with "legalOnly": true)
  *   content/legal/<slug>/<doc>.md       -> <doc>-<slug>.html     (privacy / terms / security)
  *   content/legal/_shared/<doc>/*.md    -> sections shared by all apps, pulled in with {{> doc/name}}
  *
@@ -298,7 +298,7 @@ function renderLegalPage(app, doc, { description, updated, html }) {
     .map((l) => `<a href="${l.href}">${esc(l.label)}</a>`)
     .join(' <span>•</span> ');
 
-  return `${head({ title: `${title} — NoxVoid Software`, description, path: file, ogTitle: title })}${siteHeader('jira')}
+  return `${head({ title: `${title} — NoxVoid Software`, description, path: file, ogTitle: title })}${siteHeader(app.nav || 'jira')}
     <main>
       <article class="container article-container">
         <div class="breadcrumb-nav">
@@ -337,9 +337,12 @@ function buildAppPages(rootDir) {
   for (const appFile of appFiles) {
     const app = JSON.parse(fs.readFileSync(path.join(appsDir, appFile), 'utf-8'));
 
-    fs.writeFileSync(path.join(rootDir, app.file), renderProductPage(app), 'utf-8');
-    generated.push(app.file);
-    console.log(`Generated ${app.file}`);
+    // "legalOnly": the app's page is written by hand (app.file); only its legal pages are generated.
+    if (!app.legalOnly) {
+      fs.writeFileSync(path.join(rootDir, app.file), renderProductPage(app), 'utf-8');
+      generated.push(app.file);
+      console.log(`Generated ${app.file}`);
+    }
 
     for (const doc of LEGAL_DOCS) {
       const src = path.join(legalDir, app.slug, `${doc.key}.md`);

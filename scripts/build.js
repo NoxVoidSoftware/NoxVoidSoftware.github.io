@@ -355,6 +355,9 @@ const staticPages = [
   { url: 'privacy-wishly.html', priority: '0.3', changefreq: 'yearly' },
   { url: 'security-wishly.html', priority: '0.3', changefreq: 'yearly' },
   { url: 'terms-wishly.html', priority: '0.3', changefreq: 'yearly' },
+  { url: 'privacy-clientstatus-monday.html', priority: '0.3', changefreq: 'yearly' },
+  { url: 'security-clientstatus-monday.html', priority: '0.3', changefreq: 'yearly' },
+  { url: 'terms-clientstatus-monday.html', priority: '0.3', changefreq: 'yearly' },
   { url: 'security-collectly-jira.html', priority: '0.3', changefreq: 'yearly' },
   { url: 'terms-collectly-jira.html', priority: '0.3', changefreq: 'yearly' },
 ];
