@@ -1,13 +1,13 @@
 ---
 description: "How Wishly (Jira Product Discovery app by NoxVoid Software) handles data from your Jira site and from the people who vote on your public feedback portal."
-updated: 2026-11-23
+updated: 2026-11-24
 ---
 
 ## Introduction & scope
 
 NoxVoid Software ("NoxVoid", "we", "us", or "our") respects your privacy. This Privacy Policy explains how **Wishly: Public Feedback Portal for Jira Product Discovery** (the "App") handles data when your organization installs it on a Jira Cloud site, and when people visit, vote on, or sign in to a Wishly feedback portal (a "Portal").
 
-The App has two parts: a Jira part built on Atlassian Forge, and the Portal, hosted on Cloudflare at wishly.noxvoid.workers.dev (or a successor domain we announce on this page).
+The App has two parts: a Jira part built on Atlassian Forge, and the Portal, hosted on Cloudflare at feedback.collectly.cloud.
 
 For the purposes of applicable data protection laws (including the EU GDPR and UK GDPR), NoxVoid acts as a **Data Processor** for the voter and suggestion data collected through your Portal. The organization that runs the Portal remains the **Data Controller** of that data.
 
@@ -58,7 +58,7 @@ Voter email addresses are never shown on the Portal or written to Jira. We do no
 - One-time email links expire after use or within a day.
 - Unsent emails are dropped after 7 days.
 - Votes, follows, and confirmed email addresses are kept while the Portal exists, so that vote counts stay accurate.
-- When your organization uninstalls the App or asks us to remove a Portal, we delete that Portal's data, including votes, emails, and suggestions, within 30 days of a request to the address below. Data in Forge storage is removed by Atlassian under its retention rules.
+- When your organization uninstalls the App, the App deletes all data it stored on the Portal for your site (Portals, published ideas, votes, follows, email addresses, and suggestions) as part of the uninstall. If that cleanup cannot run, we delete the data automatically once your site has not contacted the Portal for 30 days. You can also ask us to remove a Portal at the address below. Data in Forge storage is removed by Atlassian under its retention rules.
 
 ## Security
 

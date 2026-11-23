@@ -1,6 +1,6 @@
 ---
 description: "Terms of Use for Wishly: Public Feedback Portal for Jira Product Discovery, an app by NoxVoid Software."
-updated: 2026-11-23
+updated: 2026-11-24
 ---
 
 ## Agreement
@@ -16,6 +16,8 @@ The App publishes the Jira Product Discovery ideas you choose to a Portal, lets 
 ## Licensing, pricing & billing
 
 The App is offered through the Atlassian Marketplace. Free trials, prices, and licensing tiers are shown on the Marketplace listing. All purchases, renewals, and invoices are handled by Atlassian, and refunds are handled by Atlassian under the Atlassian Marketplace terms.
+
+If your subscription ends or is not active, your Portals are paused: visitors see a notice instead of the ideas, and voting and suggestions stop. Your data is kept and the Portals come back when the subscription is active again. If you uninstall the App, its data is deleted as described in the [Privacy Policy](privacy-wishly.html).
 
 ## Your responsibilities
 

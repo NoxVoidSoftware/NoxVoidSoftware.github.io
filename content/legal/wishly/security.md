@@ -1,6 +1,6 @@
 ---
 description: "How Wishly protects your Jira data and your portal visitors: Forge, signed requests, signed cookies, single-use sign-in links, and abuse protection."
-updated: 2026-11-23
+updated: 2026-11-24
 ---
 
 This page describes how **Wishly: Public Feedback Portal for Jira Product Discovery** protects your Jira data and the people who use your feedback portal. For what data is collected and why, see the [Privacy Policy](privacy-wishly.html).

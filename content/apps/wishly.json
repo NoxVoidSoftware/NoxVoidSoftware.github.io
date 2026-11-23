@@ -90,7 +90,7 @@
     "heading": "Quickstart",
     "steps": [
       "Install **Wishly** from the Atlassian Marketplace on your Jira Cloud site with Jira Product Discovery.",
-      "Open **Apps → Wishly Settings** and pick your JPD project.",
+      "Open **Jira settings → Apps → Wishly** and pick your JPD project.",
       "Create a **Number** field for portal votes in JPD and select it in **Jira fields**.",
       "Mark a few ideas as public and copy your portal link from **Share & embed**."
     ]
@@ -102,5 +102,6 @@
     { "label": "Vote Sync", "value": "Within seconds" },
     { "label": "Availability", "value": "Coming soon", "accent": "green" }
   ],
+  "knowledgeBase": "https://decorous-humerus-392.notion.site/Wishly-End-User-Knowledge-Base-421c1158ccb881dbb0ceffd36fe9b7c3",
   "supportEmail": "support@collectly.cloud"
 }
