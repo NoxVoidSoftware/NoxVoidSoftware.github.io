@@ -1,6 +1,6 @@
 ---
 description: "How ClientStatus for monday.com (a monday.com app by NoxVoid Software) collects, stores, and protects data from your monday.com boards and your clients."
-updated: 2026-11-23
+updated: 2026-11-24
 ---
 
 ## Introduction & scope
@@ -64,6 +64,12 @@ We do not sell, rent, or monetize your data, and we do not use it for advertisin
 - **monday.com Ltd.**: the platform the App runs in, and hosting of the App's views (monday code CDN)
 - **Google Cloud (Google LLC)**: hosting of the ClientStatus service and its database
 - **Resend, Inc.**: transactional email delivery from ClientStatus
+
+## Third-party domains
+
+The App's views and your clients' status pages load code only from monday.com and clientstatus.cloud, and send data only to monday.com (`api.monday.com`, `auth.monday.com`) and ClientStatus (`clientstatus.cloud`, `api.clientstatus.cloud`). They use no analytics, advertising, or tracking cookies.
+
+The marketing pages of clientstatus.cloud and its dashboard use Google Analytics (`googletagmanager.com`, `google-analytics.com`) and Microsoft Clarity (`clarity.ms`) to understand how the site is used, and only after the visitor accepts analytics cookies. They are never loaded on client status pages or inside monday.com.
 
 ## Data retention & deletion
 

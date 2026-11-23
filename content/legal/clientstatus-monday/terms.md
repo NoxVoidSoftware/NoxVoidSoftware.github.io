@@ -1,6 +1,6 @@
 ---
 description: "Terms of Use for ClientStatus for monday.com, a monday.com app by NoxVoid Software."
-updated: 2026-11-23
+updated: 2026-11-24
 ---
 
 ## Agreement
@@ -43,6 +43,15 @@ You must not use the Service to:
 ## Your data
 
 You keep all rights to the data from your boards and the comments your clients leave ("Customer Data"). You grant us only the rights needed to host, process, sync, and display Customer Data to provide the Service. We process Customer Data as described in the [Privacy Policy](privacy-clientstatus-monday.html), and our security measures are described on the [Security](security-clientstatus-monday.html) page.
+
+## Communications
+
+We contact the users of the App only by email, and only for:
+
+- replies to support requests you send us;
+- service notices: security incidents, changes to these Terms or to your plan, and planned changes that affect how the App works.
+
+We do not send marketing email to users of the App unless they opt in. ClientStatus does not email your clients: you share their links yourself.
 
 ## Support
 
