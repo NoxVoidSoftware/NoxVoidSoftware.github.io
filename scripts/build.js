@@ -351,6 +351,10 @@ const staticPages = [
   { url: 'privacy-domainguard.html', priority: '0.3', changefreq: 'yearly' },
   { url: 'security-domainguard.html', priority: '0.3', changefreq: 'yearly' },
   { url: 'terms-domainguard.html', priority: '0.3', changefreq: 'yearly' },
+  { url: 'wishly-jira.html', priority: '0.8', changefreq: 'monthly' },
+  { url: 'privacy-wishly.html', priority: '0.3', changefreq: 'yearly' },
+  { url: 'security-wishly.html', priority: '0.3', changefreq: 'yearly' },
+  { url: 'terms-wishly.html', priority: '0.3', changefreq: 'yearly' },
   { url: 'security-collectly-jira.html', priority: '0.3', changefreq: 'yearly' },
   { url: 'terms-collectly-jira.html', priority: '0.3', changefreq: 'yearly' },
 ];

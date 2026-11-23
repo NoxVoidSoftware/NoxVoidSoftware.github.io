@@ -1,0 +1,106 @@
+{
+  "slug": "wishly",
+  "file": "wishly-jira.html",
+  "name": "Wishly",
+  "legalName": "Wishly: Public Feedback Portal for Jira Product Discovery",
+  "title": "Wishly: Public Feedback Portal for Jira Product Discovery",
+  "seo": {
+    "title": "Wishly: Public Feedback Portal for Jira Product Discovery",
+    "description": "Wishly gives Jira Product Discovery a public feedback portal: customers vote and suggest ideas without an Atlassian account, and the votes land in your JPD fields within seconds.",
+    "ogTitle": "Wishly: Public Feedback Portal & Roadmap for Jira Product Discovery",
+    "ogDescription": "Public ideas board, roadmap and changelog for Jira Product Discovery. Customer votes sync into JPD fields. No Atlassian account needed to vote."
+  },
+  "icon": "assets/apps/wishly.svg",
+  "badges": [
+    { "text": "Jira Product Discovery App", "tone": "indigo" },
+    { "text": "Coming soon", "tone": "blue" }
+  ],
+  "lead": "Give your customers a public place to vote on ideas, suggest new ones, and follow your roadmap. Every vote lands in your Jira Product Discovery fields within seconds, so you prioritize with real demand, not guesses.",
+  "chips": [
+    { "icon": "🗳️", "text": "**No Atlassian account** to vote" },
+    { "icon": "⚡", "text": "Votes in JPD **within seconds**" },
+    { "icon": "🏢", "text": "**Private boards** for B2B" }
+  ],
+  "marketplace": {
+    "url": "https://marketplace.atlassian.com/vendors/401220834/noxvoid-software",
+    "label": "Coming soon to Atlassian Marketplace"
+  },
+  "overview": {
+    "heading": "Customer Demand, Inside Jira Product Discovery",
+    "text": "Jira Product Discovery is where your team decides what to build, but your customers can't see it or vote in it without a Jira seat. Wishly publishes the ideas you choose to a branded portal. Customers vote, suggest and subscribe; your team moderates suggestions inside Jira and sees the vote counts in ordinary JPD number fields, ready for views, formulas and sorting."
+  },
+  "highlights": [
+    {
+      "icon": "🗳️",
+      "title": "Votes where you prioritize",
+      "text": "Each vote is written to a JPD field you pick, with a separate count for email-confirmed voters. Use them in views, filters and formulas like any other field."
+    },
+    {
+      "icon": "🗺️",
+      "title": "Ideas, roadmap and changelog",
+      "text": "One portal with an ideas board, a roadmap (Under review, Planned, In progress) and a dated Shipped list, all driven by your JPD statuses."
+    },
+    {
+      "icon": "📬",
+      "title": "Close the loop automatically",
+      "text": "Voters and followers get an email when an idea moves to Planned, In progress or Shipped. You choose which moves send email."
+    }
+  ],
+  "features": [
+    {
+      "title": "Public or Private Portal",
+      "text": "Publish only the ideas you mark public. For B2B, restrict voting to your customers' email domains or make the whole board private behind a sign-in."
+    },
+    {
+      "title": "Suggestions with Moderation",
+      "text": "Customers suggest ideas and see similar ones as they type. Your team approves, merges into an existing idea, or rejects them in the **Wishly Inbox** inside Jira."
+    },
+    {
+      "title": "Easy Sign-in for Voters",
+      "text": "Voters confirm with a one-time email link or continue with **Google** or **GitHub**. No passwords, no Atlassian account."
+    },
+    {
+      "title": "Spam & Abuse Protection",
+      "text": "Cloudflare Turnstile, signed voter cookies and per-network rate limits keep vote counts honest without CAPTCHAs on every click."
+    },
+    {
+      "title": "Your Brand, Your Words",
+      "text": "Portal name, logo, accent colour, light and dark mode, plus an **Update from the team** note on each idea, read from a JPD field."
+    },
+    {
+      "title": "Embed on Your Site",
+      "text": "Add the portal to your website or help center as a full page or a **Feedback** button that opens it in a panel."
+    }
+  ],
+  "steps": {
+    "heading": "How It Works",
+    "items": [
+      { "title": "Connect a JPD project", "text": "Install Wishly, pick your Jira Product Discovery project and the number field that should hold portal votes." },
+      { "title": "Mark ideas public", "text": "Choose which ideas appear on the portal and how JPD statuses map to Under review, Planned, In progress and Shipped." },
+      { "title": "Share the portal", "text": "Send customers the link or embed it on your site. They vote, suggest and subscribe without an Atlassian account." },
+      { "title": "Prioritize with real demand", "text": "Votes reach your JPD field within seconds. Moderate suggestions in the Wishly Inbox and let status emails tell voters what shipped." }
+    ]
+  },
+  "trust": {
+    "icon": "🛡️",
+    "heading": "Your Jira Stays Private",
+    "text": "The portal only receives what you publish: the title, summary and public status of ideas you mark public. Voter emails are never shown publicly or written to Jira, and the Jira side runs on Atlassian Forge with your users' own permissions."
+  },
+  "quickstart": {
+    "heading": "Quickstart",
+    "steps": [
+      "Install **Wishly** from the Atlassian Marketplace on your Jira Cloud site with Jira Product Discovery.",
+      "Open **Apps → Wishly Settings** and pick your JPD project.",
+      "Create a **Number** field for portal votes in JPD and select it in **Jira fields**.",
+      "Mark a few ideas as public and copy your portal link from **Share & embed**."
+    ]
+  },
+  "specs": [
+    { "label": "Platform", "value": "Jira Cloud + Jira Product Discovery" },
+    { "label": "Architecture", "value": "Atlassian Forge + Cloudflare portal" },
+    { "label": "Voter Sign-in", "value": "Email link, Google, GitHub" },
+    { "label": "Vote Sync", "value": "Within seconds" },
+    { "label": "Availability", "value": "Coming soon", "accent": "green" }
+  ],
+  "supportEmail": "support@collectly.cloud"
+}
