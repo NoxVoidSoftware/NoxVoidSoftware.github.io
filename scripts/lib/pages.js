@@ -11,7 +11,7 @@ const fs = require('fs');
 const path = require('path');
 const matter = require('gray-matter');
 const { marked } = require('marked');
-const { VENDOR_URL, esc, head, siteHeader, siteFooter } = require('./layout');
+const { BASE_URL, VENDOR_URL, esc, head, siteHeader, siteFooter } = require('./layout');
 
 // Legal documents every app has, in the order they are cross-linked.
 const LEGAL_DOCS = [
@@ -100,7 +100,7 @@ function renderHighlights(highlights) {
   const cards = highlights
     .map((h) => `            <div class="feature-box highlight-card">
               <div class="highlight-icon" aria-hidden="true">${h.icon}</div>
-              <h4>${esc(h.title)}</h4>
+              <h3>${esc(h.title)}</h3>
               <p>${md(h.text)}</p>
             </div>`)
     .join('\n');
@@ -217,6 +217,108 @@ ${buttons.join('\n')}
         </aside>`;
 }
 
+function buildAppJsonLd(app) {
+  const url = `${BASE_URL}/${app.file}`;
+  const iconUrl = app.icon ? `${BASE_URL}/${app.icon.replace(/^\//, '')}` : `${BASE_URL}/assets/logo-512.png`;
+
+  const schema = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebApplication',
+        '@id': `${url}#software`,
+        'name': app.legalName || app.name,
+        'alternateName': app.name,
+        'url': url,
+        'description': app.seo.description || app.lead,
+        'applicationCategory': 'BusinessApplication',
+        'operatingSystem': 'Atlassian Cloud / Web Browser',
+        'browserRequirements': 'Requires JavaScript. Compatible with all modern browsers.',
+        'image': iconUrl,
+        'publisher': {
+          '@type': 'Organization',
+          '@id': `${BASE_URL}/#organization`,
+          'name': 'NoxVoid Software',
+          'url': BASE_URL,
+          'logo': `${BASE_URL}/assets/logo.svg`
+        },
+        'offers': {
+          '@type': 'Offer',
+          'price': '0',
+          'priceCurrency': 'USD',
+          'availability': 'https://schema.org/InStock',
+          'url': app.marketplace?.url || url
+        }
+      },
+      {
+        '@type': 'BreadcrumbList',
+        '@id': `${url}#breadcrumb`,
+        'itemListElement': [
+          {
+            '@type': 'ListItem',
+            'position': 1,
+            'name': 'Home',
+            'item': BASE_URL
+          },
+          {
+            '@type': 'ListItem',
+            'position': 2,
+            'name': 'Jira Apps',
+            'item': `${BASE_URL}/#atlassian`
+          },
+          {
+            '@type': 'ListItem',
+            'position': 3,
+            'name': app.name,
+            'item': url
+          }
+        ]
+      }
+    ]
+  };
+
+  return `  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+${JSON.stringify(schema, null, 2)}
+  </script>`;
+}
+
+function buildLegalJsonLd(app, doc) {
+  const file = legalFile(doc.key, app.slug);
+  const url = `${BASE_URL}/${file}`;
+  const appUrl = `${BASE_URL}/${app.file}`;
+
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    'itemListElement': [
+      {
+        '@type': 'ListItem',
+        'position': 1,
+        'name': 'Home',
+        'item': BASE_URL
+      },
+      {
+        '@type': 'ListItem',
+        'position': 2,
+        'name': app.name,
+        'item': appUrl
+      },
+      {
+        '@type': 'ListItem',
+        'position': 3,
+        'name': doc.label,
+        'item': url
+      }
+    ]
+  };
+
+  return `  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+${JSON.stringify(schema, null, 2)}
+  </script>`;
+}
+
 function renderProductPage(app) {
   return `${head({
     title: `${app.seo.title} — NoxVoid Software`,
@@ -225,6 +327,7 @@ function renderProductPage(app) {
     ogType: 'product',
     ogTitle: app.seo.ogTitle,
     ogDescription: app.seo.ogDescription,
+    extraHead: buildAppJsonLd(app),
   })}${siteHeader('jira')}
     <main>
       <!-- Hero -->
@@ -298,7 +401,7 @@ function renderLegalPage(app, doc, { description, updated, html }) {
     .map((l) => `<a href="${l.href}">${esc(l.label)}</a>`)
     .join(' <span>•</span> ');
 
-  return `${head({ title: `${title} — NoxVoid Software`, description, path: file, ogTitle: title })}${siteHeader(app.nav || 'jira')}
+  return `${head({ title: `${title} — NoxVoid Software`, description, path: file, ogTitle: title, extraHead: buildLegalJsonLd(app, doc) })}${siteHeader(app.nav || 'jira')}
     <main>
       <article class="container article-container">
         <div class="breadcrumb-nav">

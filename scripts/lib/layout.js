@@ -59,6 +59,12 @@ const CONSENT_SNIPPET = `  <!-- Google Consent Mode v2: opt-in in the EEA, UK an
  */
 function head(p) {
   const url = `${BASE_URL}/${p.path}`;
+  const title = esc(p.title);
+  const description = esc(p.description);
+  const ogTitle = esc(p.ogTitle || p.title);
+  const ogDescription = esc(p.ogDescription || p.description);
+  const ogImage = p.ogImage ? `${BASE_URL}/${p.ogImage.replace(/^\//, '')}` : `${BASE_URL}/assets/logo-512.png`;
+
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -66,8 +72,8 @@ function head(p) {
 ${CONSENT_SNIPPET}
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="color-scheme" content="light dark">
-  <title>${esc(p.title)}</title>
-  <meta name="description" content="${esc(p.description)}">
+  <title>${title}</title>
+  <meta name="description" content="${description}">
   <link rel="canonical" href="${url}">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
@@ -76,11 +82,17 @@ ${CONSENT_SNIPPET}
 
   <!-- Open Graph -->
   <meta property="og:type" content="${p.ogType || 'website'}">
-  <meta property="og:title" content="${esc(p.ogTitle || p.title)}">
-  <meta property="og:description" content="${esc(p.ogDescription || p.description)}">
+  <meta property="og:title" content="${ogTitle}">
+  <meta property="og:description" content="${ogDescription}">
   <meta property="og:url" content="${url}">
-  <meta property="og:image" content="${BASE_URL}/assets/logo-512.png">
-</head>`;
+  <meta property="og:image" content="${ogImage}">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="${ogTitle}">
+  <meta name="twitter:description" content="${ogDescription}">
+  <meta name="twitter:image" content="${ogImage}">
+${p.extraHead ? `${p.extraHead}\n` : ''}</head>`;
 }
 
 /** Opens <body> and renders the site header. `active` is 'cloud', 'jira' or 'blog'. */

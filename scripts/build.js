@@ -12,6 +12,18 @@ if (!fs.existsSync(BLOG_OUT_DIR)) {
   fs.mkdirSync(BLOG_OUT_DIR, { recursive: true });
 }
 
+// Ensure markdown images render with native lazy loading & async decoding
+marked.use({
+  renderer: {
+    image(token) {
+      const href = token.href || '';
+      const text = escapeHtml(token.text || '');
+      const titleAttr = token.title ? ` title="${escapeHtml(token.title)}"` : '';
+      return `<img src="${href}" alt="${text}"${titleAttr} loading="lazy" decoding="async">`;
+    }
+  }
+});
+
 // 1. Read and parse all markdown articles
 const files = fs.readdirSync(CONTENT_DIR).filter(f => f.endsWith('.md'));
 const articles = [];
@@ -31,6 +43,21 @@ for (const file of files) {
     ? data.date.toISOString().split('T')[0]
     : String(data.date || new Date().toISOString().split('T')[0]);
 
+  // Extract first image in the article for rich social previews (fallback to logo)
+  const imageMatch = content.match(/!\[.*?\]\((.*?)\)/);
+  let socialImage = `${BASE_URL}/assets/logo-512.png`;
+  let twitterCard = 'summary';
+
+  if (imageMatch && imageMatch[1]) {
+    const rawImg = imageMatch[1].trim();
+    if (/^https?:\/\//i.test(rawImg)) {
+      socialImage = rawImg;
+    } else {
+      socialImage = `${BASE_URL}/${rawImg.replace(/^\.\.\//, '').replace(/^\//, '')}`;
+    }
+    twitterCard = 'summary_large_image';
+  }
+
   articles.push({
     title: escapeHtml(rawTitle),
     description: escapeHtml(rawDescription),
@@ -42,6 +69,8 @@ for (const file of files) {
     readTime: escapeHtml(data.readTime || '3 min read'),
     slug,
     htmlBody,
+    socialImage,
+    twitterCard,
   });
 }
 
@@ -107,10 +136,10 @@ for (const art of articles) {
   <meta name="color-scheme" content="light dark">
   <title>${art.title} — NoxVoid Blog</title>
   <meta name="description" content="${art.description}">
+  <link rel="canonical" href="${BASE_URL}/blog/${art.slug}.html">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
   <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
   <meta name="theme-color" content="#0a0f1d">
-  <meta property="og:image" content="${BASE_URL}/assets/logo-512.png">
   <link rel="stylesheet" href="../styles.css">
   
   <!-- Open Graph -->
@@ -118,29 +147,71 @@ for (const art of articles) {
   <meta property="og:title" content="${art.title}">
   <meta property="og:description" content="${art.description}">
   <meta property="og:url" content="${BASE_URL}/blog/${art.slug}.html">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="${art.socialImage}">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="${art.twitterCard}">
+  <meta name="twitter:title" content="${art.title}">
+  <meta name="twitter:description" content="${art.description}">
+  <meta name="twitter:image" content="${art.socialImage}">
 
   <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": ${art.titleJson},
-    "description": ${art.descriptionJson},
-    "datePublished": "${art.date}",
-    "author": {
-      "@type": "Organization",
-      "name": "NoxVoid Software",
-      "url": "${BASE_URL}"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "NoxVoid Software",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "${BASE_URL}/assets/logo.svg"
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "@id": "${BASE_URL}/blog/${art.slug}.html#article",
+        "isPartOf": {
+          "@type": "WebPage",
+          "@id": "${BASE_URL}/blog/${art.slug}.html"
+        },
+        "headline": ${art.titleJson},
+        "description": ${art.descriptionJson},
+        "datePublished": "${art.date}",
+        "dateModified": "${art.date}",
+        "mainEntityOfPage": "${BASE_URL}/blog/${art.slug}.html",
+        "image": "${art.socialImage}",
+        "author": {
+          "@type": "Organization",
+          "name": "NoxVoid Software",
+          "url": "${BASE_URL}"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "NoxVoid Software",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "${BASE_URL}/assets/logo.svg"
+          }
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "${BASE_URL}/blog/${art.slug}.html#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "${BASE_URL}"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "${BASE_URL}/blog.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": ${art.titleJson},
+            "item": "${BASE_URL}/blog/${art.slug}.html"
+          }
+        ]
       }
-    }
+    ]
   }
   </script>
 </head>
@@ -252,27 +323,61 @@ const blogIndexHtml = `<!DOCTYPE html>
   <meta name="color-scheme" content="light dark">
   <title>Blog & Studio Updates — NoxVoid Software</title>
   <meta name="description" content="Engineering articles, workflow optimization guides, and studio updates from NoxVoid Software.">
+  <link rel="canonical" href="${BASE_URL}/blog.html">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <meta name="theme-color" content="#0a0f1d">
-  <meta property="og:image" content="${BASE_URL}/assets/logo-512.png">
   <link rel="stylesheet" href="styles.css">
+
+  <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="NoxVoid Studio Blog">
+  <meta property="og:title" content="Blog & Studio Updates — NoxVoid Software">
   <meta property="og:description" content="Engineering articles, workflow optimization guides, and studio updates from NoxVoid Software.">
+  <meta property="og:url" content="${BASE_URL}/blog.html">
+  <meta property="og:image" content="${BASE_URL}/assets/logo-512.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Blog & Studio Updates — NoxVoid Software">
+  <meta name="twitter:description" content="Engineering articles, workflow optimization guides, and studio updates from NoxVoid Software.">
+  <meta name="twitter:image" content="${BASE_URL}/assets/logo-512.png">
 
   <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    "name": "NoxVoid Studio Blog",
-    "description": "Practical notes on cloud architecture, agile delivery, incident transparency, and software craftsmanship.",
-    "publisher": {
-      "@type": "Organization",
-      "name": "NoxVoid Software",
-      "url": "${BASE_URL}"
-    }
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "@id": "${BASE_URL}/blog.html#collection",
+        "name": "NoxVoid Studio Blog",
+        "url": "${BASE_URL}/blog.html",
+        "description": "Practical notes on cloud architecture, agile delivery, incident transparency, and software craftsmanship.",
+        "publisher": {
+          "@type": "Organization",
+          "name": "NoxVoid Software",
+          "url": "${BASE_URL}"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "${BASE_URL}/blog.html#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "${BASE_URL}"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "${BASE_URL}/blog.html"
+          }
+        ]
+      }
+    ]
   }
   </script>
 </head>
