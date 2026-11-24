@@ -1,6 +1,6 @@
 ---
 description: "How ClientStatus for monday.com protects your board data and your clients' status pages: OAuth, signed requests, encryption, and private links."
-updated: 2026-11-23
+updated: 2026-11-24
 ---
 
 This page describes how **ClientStatus for monday.com** protects your monday.com data and the pages your clients see. For what data is collected and why, see the [Privacy Policy](privacy-clientstatus-monday.html).
@@ -23,7 +23,7 @@ This page describes how **ClientStatus for monday.com** protects your monday.com
 - **Encryption in transit**: all traffic between monday.com, ClientStatus, and your clients' browsers uses TLS.
 - **Encryption at rest**: our database and backups are encrypted at rest by Google Cloud. monday.com tokens are also encrypted by the application before they are stored.
 - **Private client links**: each client link is a long random token that shows only that client's tasks, read-only. You can disable a link at any time.
-- **Uninstall**: when the App is uninstalled, its monday.com tokens are deleted right away and it stops reading and writing your boards.
+- **Uninstall**: when the App is uninstalled, its monday.com tokens are deleted right away and it stops reading and writing your boards. The data from your boards is deleted 10 days later, unless the App is installed again.
 
 ## Subprocessors
 

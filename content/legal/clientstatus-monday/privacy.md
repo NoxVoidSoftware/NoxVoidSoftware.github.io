@@ -73,7 +73,8 @@ The marketing pages of clientstatus.cloud and its dashboard use Google Analytics
 
 ## Data retention & deletion
 
-- **When the App is uninstalled**, monday.com notifies us and we delete your monday.com tokens immediately. The App stops reading and writing your boards. Your projects, tasks, and client links stay in your ClientStatus workspace, so installing the App again picks up where you left off.
+- **When the App is uninstalled**, monday.com notifies us and we delete your monday.com tokens immediately. The App stops reading and writing your boards.
+- **10 days after the uninstall**, we delete everything that came from your monday.com boards: the projects and tasks, their status history, comments and files, the client links, the clients only those boards used, and the connection to your monday.com account. If you install the App again within those 10 days, it picks up where you left off and nothing is deleted. Projects you created in ClientStatus itself are not affected.
 - **To delete your data**, email us at the address below from an owner's address, and we delete the workspace and everything in it within 30 days. An owner who also belongs to another ClientStatus workspace can delete it directly in ClientStatus Settings.
 - Data in your monday.com boards stays in monday.com and is governed by your agreement with monday.com.
 
