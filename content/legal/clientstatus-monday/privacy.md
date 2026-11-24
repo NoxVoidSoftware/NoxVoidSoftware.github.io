@@ -62,7 +62,9 @@ We do not sell, rent, or monetize your data, and we do not use it for advertisin
 ## Subprocessors
 
 - **monday.com Ltd.**: the platform the App runs in, and hosting of the App's views (monday code CDN)
-- **Google Cloud (Google LLC)**: hosting of the ClientStatus service and its database
+- **Google Cloud (Google LLC)**: hosting of the ClientStatus service and storage of uploaded files
+- **Supabase, Inc.**: the ClientStatus database
+- **Cloudflare, Inc.**: DNS, TLS and network protection in front of ClientStatus
 - **Resend, Inc.**: transactional email delivery from ClientStatus
 
 ## Third-party domains

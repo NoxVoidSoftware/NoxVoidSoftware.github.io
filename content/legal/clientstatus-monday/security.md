@@ -8,7 +8,7 @@ This page describes how **ClientStatus for monday.com** protects your monday.com
 ## Architecture
 
 - **Views in monday.com.** The App's board view and item view are hosted on monday.com's CDN. They hold no monday.com token: they send monday.com's short-lived session token to ClientStatus, which verifies it and returns a ClientStatus session kept in memory only.
-- **ClientStatus service.** The sync, your workspace, and your clients' status pages run on ClientStatus, hosted on Google Cloud.
+- **ClientStatus service.** The sync, your workspace, and your clients' status pages run on ClientStatus, hosted on Google Cloud, with its database on Supabase. All traffic reaches ClientStatus through Cloudflare.
 - **Only the boards you choose.** The App reads and writes only the boards you set up in it, and only the columns you pick.
 
 ## Authentication & authorization
@@ -20,15 +20,17 @@ This page describes how **ClientStatus for monday.com** protects your monday.com
 
 ## Data protection
 
-- **Encryption in transit**: all traffic between monday.com, ClientStatus, and your clients' browsers uses TLS.
-- **Encryption at rest**: our database and backups are encrypted at rest by Google Cloud. monday.com tokens are also encrypted by the application before they are stored.
+- **Encryption in transit**: all traffic between monday.com, ClientStatus, and your clients' browsers uses TLS 1.2 or newer.
+- **Encryption at rest**: our database and its backups are encrypted at rest by Supabase, and uploaded files by Google Cloud. monday.com tokens are also encrypted by the application before they are stored.
 - **Private client links**: each client link is a long random token that shows only that client's tasks, read-only. You can disable a link at any time.
 - **Uninstall**: when the App is uninstalled, its monday.com tokens are deleted right away and it stops reading and writing your boards. The data from your boards is deleted 10 days later, unless the App is installed again.
 
 ## Subprocessors
 
 - **monday.com**: platform and hosting of the App's views
-- **Google Cloud**: ClientStatus hosting and database
+- **Google Cloud**: ClientStatus hosting and file storage
+- **Supabase**: ClientStatus database
+- **Cloudflare**: DNS, TLS and network protection
 - **Resend**: transactional email delivery
 
 ## Development & access security
