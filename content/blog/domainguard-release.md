@@ -1,6 +1,7 @@
 ---
 title: "Introducing DomainGuard for Jira Service Management: Automated Customer Domain Routing & Freemail Shield"
-description: "Announcing DomainGuard for JSM Cloud: map up to 500 email domains per organization, block 30,000+ public email providers, isolate unknown domains, and sync existing customers — 100% native on Atlassian Forge."
+seoTitle: "DomainGuard for JSM: Customer Domain Router"
+description: "Map up to 500 email domains per JSM organization, block 30,000+ freemail providers, isolate unknown domains, and sync existing customers on Atlassian Forge."
 date: "2026-11-24"
 category: "Product Release"
 readTime: "5 min read"

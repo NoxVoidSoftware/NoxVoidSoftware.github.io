@@ -75,6 +75,7 @@ ${CONSENT_SNIPPET}
   <title>${title}</title>
   <meta name="description" content="${description}">
   <link rel="canonical" href="${url}">
+  <link rel="describedby" href="${BASE_URL}/llms.txt">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <meta name="theme-color" content="#0a0f1d">

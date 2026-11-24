@@ -22,6 +22,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -39,7 +41,7 @@ jobs:
       - name: Assemble site
         run: |
           mkdir _site
-          cp -r *.html blog assets styles.css robots.txt sitemap.xml _site/
+          cp -r *.html blog assets styles.css robots.txt sitemap.xml llms.txt _site/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

@@ -6,9 +6,11 @@
   "title": "DomainGuard: Customer Domain Router for JSM",
   "seo": {
     "title": "DomainGuard: Customer Domain Router for JSM",
-    "description": "DomainGuard routes Jira Service Management customers to the right organization by email domain, blocks public email providers, isolates unknown domains, and keeps an audit log.",
+    "description": "Route JSM customers by email domain, block 30,000+ freemail providers, isolate unknown domains, and sync existing users. 100% Forge native.",
     "ogTitle": "DomainGuard: Customer Domain Router for Jira Service Management",
-    "ogDescription": "Map email domains to JSM organizations automatically. Freemail Shield, tenant isolation, bulk sync and audit log. 100% Forge native."
+    "ogDescription": "Map email domains to JSM organizations automatically. Freemail Shield, tenant isolation, bulk sync and audit log. 100% Forge native.",
+    "ogImage": "assets/marketplace/domainguard/banner.png",
+    "iconPng": "assets/marketplace/domainguard/domainguard-icon-144.png"
   },
   "icon": "assets/apps/domainguard.svg",
   "badges": [
@@ -26,6 +28,9 @@
     "label": "Try it Free on Atlassian Marketplace"
   },
   "knowledgeBase": "https://decorous-humerus-392.notion.site/DomainGuard-End-User-Knowledge-Base-420c1158ccb8810ab541e43a6b426946",
+  "extraLinks": [
+    { "label": "Release Post", "href": "blog/domainguard-release.html" }
+  ],
   "overview": {
     "heading": "The Right Customer in the Right Organization",
     "text": "In Jira Service Management, organizations decide which customers can see each other's requests. Keeping them up to date by hand is slow and error-prone, and one mistake can show a customer another company's tickets. DomainGuard does it for you: when a request comes in, it reads the reporter's email domain and adds them to the organization you mapped to that domain."

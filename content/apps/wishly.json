@@ -5,8 +5,8 @@
   "legalName": "Wishly: Public Feedback Portal for Jira Product Discovery",
   "title": "Wishly: Public Feedback Portal for Jira Product Discovery",
   "seo": {
-    "title": "Wishly: Public Feedback Portal for Jira Product Discovery",
-    "description": "Wishly gives Jira Product Discovery a public feedback portal: customers vote and suggest ideas without an Atlassian account, and the votes land in your JPD fields within seconds.",
+    "title": "Wishly: Public Feedback Portal for Jira Discovery",
+    "description": "Public feedback portal & roadmap for Jira Product Discovery. Customers vote without an Atlassian account; votes sync to JPD fields in seconds.",
     "ogTitle": "Wishly: Public Feedback Portal & Roadmap for Jira Product Discovery",
     "ogDescription": "Public ideas board, roadmap and changelog for Jira Product Discovery. Customer votes sync into JPD fields. No Atlassian account needed to vote."
   },

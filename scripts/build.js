@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const { execFileSync } = require('child_process');
 const matter = require('gray-matter');
 const { marked } = require('marked');
 
@@ -12,14 +13,34 @@ if (!fs.existsSync(BLOG_OUT_DIR)) {
   fs.mkdirSync(BLOG_OUT_DIR, { recursive: true });
 }
 
-// Ensure markdown images render with native lazy loading & async decoding
+// Read width/height from local PNG headers so blog images emit explicit dimensions (zero CLS)
+function getPngDimensions(href) {
+  if (!href || /^https?:\/\//i.test(href)) return null;
+  const rel = href.replace(/^\.\.\//, '').replace(/^\//, '');
+  const fullPath = path.join(ROOT_DIR, rel);
+  if (!fullPath.endsWith('.png') || !fs.existsSync(fullPath)) return null;
+  try {
+    const fd = fs.openSync(fullPath, 'r');
+    const buf = Buffer.alloc(24);
+    fs.readSync(fd, buf, 0, 24, 0);
+    fs.closeSync(fd);
+    if (buf.toString('ascii', 1, 4) === 'PNG') {
+      return { width: buf.readUInt32BE(16), height: buf.readUInt32BE(20) };
+    }
+  } catch (e) {}
+  return null;
+}
+
+// Ensure markdown images render with native lazy loading, async decoding, and explicit dimensions
 marked.use({
   renderer: {
     image(token) {
       const href = token.href || '';
       const text = escapeHtml(token.text || '');
       const titleAttr = token.title ? ` title="${escapeHtml(token.title)}"` : '';
-      return `<img src="${href}" alt="${text}"${titleAttr} loading="lazy" decoding="async">`;
+      const dims = getPngDimensions(href);
+      const dimAttrs = dims ? ` width="${dims.width}" height="${dims.height}"` : '';
+      return `<img src="${href}" alt="${text}"${titleAttr}${dimAttrs} loading="lazy" decoding="async">`;
     }
   }
 });
@@ -37,6 +58,7 @@ for (const file of files) {
   const htmlBody = marked.parse(content);
 
   const rawTitle = String(data.title || 'Untitled');
+  const rawSeoTitle = String(data.seoTitle || rawTitle);
   const rawDescription = String(data.description || '');
   // gray-matter turns unquoted YAML dates into Date objects — normalize to YYYY-MM-DD
   const date = data.date instanceof Date
@@ -59,7 +81,10 @@ for (const file of files) {
   }
 
   articles.push({
+    rawTitle,
+    rawDescription,
     title: escapeHtml(rawTitle),
+    seoTitle: escapeHtml(rawSeoTitle),
     description: escapeHtml(rawDescription),
     titleJson: toJsonLd(rawTitle),
     descriptionJson: toJsonLd(rawDescription),
@@ -134,9 +159,10 @@ for (const art of articles) {
   <script defer src="../assets/consent.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="color-scheme" content="light dark">
-  <title>${art.title} — NoxVoid Blog</title>
+  <title>${art.seoTitle} — NoxVoid Blog</title>
   <meta name="description" content="${art.description}">
   <link rel="canonical" href="${BASE_URL}/blog/${art.slug}.html">
+  <link rel="describedby" href="${BASE_URL}/llms.txt">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
   <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
   <meta name="theme-color" content="#0a0f1d">
@@ -183,7 +209,9 @@ for (const art of articles) {
           "name": "NoxVoid Software",
           "logo": {
             "@type": "ImageObject",
-            "url": "${BASE_URL}/assets/logo.svg"
+            "url": "${BASE_URL}/assets/logo-512.png",
+            "width": 512,
+            "height": 512
           }
         }
       },
@@ -324,6 +352,7 @@ const blogIndexHtml = `<!DOCTYPE html>
   <title>Blog & Studio Updates — NoxVoid Software</title>
   <meta name="description" content="Engineering articles, workflow optimization guides, and studio updates from NoxVoid Software.">
   <link rel="canonical" href="${BASE_URL}/blog.html">
+  <link rel="describedby" href="${BASE_URL}/llms.txt">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <meta name="theme-color" content="#0a0f1d">
@@ -438,41 +467,63 @@ console.log('Generated blog.html index.');
 const { buildAppPages } = require('./lib/pages');
 buildAppPages(ROOT_DIR);
 
-// 4. Generate dynamic sitemap.xml
-const staticPages = [
-  { url: '', priority: '1.0', changefreq: 'weekly' },
-  { url: 'clientstatus.html', priority: '0.8', changefreq: 'monthly' },
-  { url: 'collectly.html', priority: '0.8', changefreq: 'monthly' },
-  { url: 'caseforge.html', priority: '0.8', changefreq: 'monthly' },
-  { url: 'collectly-jira.html', priority: '0.8', changefreq: 'monthly' },
-  { url: 'cyclepulse-jira.html', priority: '0.8', changefreq: 'monthly' },
-  { url: 'domainguard-jira.html', priority: '0.8', changefreq: 'monthly' },
-  { url: 'blog.html', priority: '0.7', changefreq: 'weekly' },
-  { url: 'privacy.html', priority: '0.3', changefreq: 'yearly' },
-  { url: 'privacy-collectly-jira.html', priority: '0.3', changefreq: 'yearly' },
-  { url: 'privacy-cyclepulse.html', priority: '0.3', changefreq: 'yearly' },
-  { url: 'security-cyclepulse.html', priority: '0.3', changefreq: 'yearly' },
-  { url: 'terms-cyclepulse.html', priority: '0.3', changefreq: 'yearly' },
-  { url: 'privacy-domainguard.html', priority: '0.3', changefreq: 'yearly' },
-  { url: 'security-domainguard.html', priority: '0.3', changefreq: 'yearly' },
-  { url: 'terms-domainguard.html', priority: '0.3', changefreq: 'yearly' },
-  { url: 'wishly-jira.html', priority: '0.8', changefreq: 'monthly' },
-  { url: 'privacy-wishly.html', priority: '0.3', changefreq: 'yearly' },
-  { url: 'security-wishly.html', priority: '0.3', changefreq: 'yearly' },
-  { url: 'terms-wishly.html', priority: '0.3', changefreq: 'yearly' },
-  { url: 'privacy-clientstatus-monday.html', priority: '0.3', changefreq: 'yearly' },
-  { url: 'security-clientstatus-monday.html', priority: '0.3', changefreq: 'yearly' },
-  { url: 'terms-clientstatus-monday.html', priority: '0.3', changefreq: 'yearly' },
-  { url: 'security-collectly-jira.html', priority: '0.3', changefreq: 'yearly' },
-  { url: 'terms-collectly-jira.html', priority: '0.3', changefreq: 'yearly' },
-];
-
+// 4. Generate dynamic sitemap.xml (using real git/source modification dates where available)
 const today = new Date().toISOString().split('T')[0];
+
+function getLastMod(sourceRelPath, fallback = today) {
+  if (!sourceRelPath) return fallback;
+  const full = path.join(ROOT_DIR, sourceRelPath);
+  if (sourceRelPath.endsWith('.md') && fs.existsSync(full)) {
+    try {
+      const { data } = matter(fs.readFileSync(full, 'utf-8'));
+      if (data.updated) {
+        return data.updated instanceof Date ? data.updated.toISOString().split('T')[0] : String(data.updated);
+      }
+    } catch (e) {}
+  }
+  try {
+    const out = execFileSync('git', ['log', '-1', '--format=%cs', '--', sourceRelPath], {
+      cwd: ROOT_DIR,
+      encoding: 'utf-8',
+      stdio: ['ignore', 'pipe', 'ignore'],
+    }).trim();
+    if (/^\d{4}-\d{2}-\d{2}$/.test(out)) return out;
+  } catch (e) {}
+  return fallback;
+}
+
+const staticPages = [
+  { url: '', source: 'index.html', priority: '1.0', changefreq: 'weekly' },
+  { url: 'clientstatus.html', source: 'clientstatus.html', priority: '0.8', changefreq: 'monthly' },
+  { url: 'collectly.html', source: 'collectly.html', priority: '0.8', changefreq: 'monthly' },
+  { url: 'caseforge.html', source: 'caseforge.html', priority: '0.8', changefreq: 'monthly' },
+  { url: 'collectly-jira.html', source: 'content/apps/collectly-jira.json', priority: '0.8', changefreq: 'monthly' },
+  { url: 'cyclepulse-jira.html', source: 'content/apps/cyclepulse.json', priority: '0.8', changefreq: 'monthly' },
+  { url: 'domainguard-jira.html', source: 'content/apps/domainguard.json', priority: '0.8', changefreq: 'monthly' },
+  { url: 'wishly-jira.html', source: 'content/apps/wishly.json', priority: '0.8', changefreq: 'monthly' },
+  { url: 'blog.html', lastmod: articles[0]?.date || today, priority: '0.7', changefreq: 'weekly' },
+  { url: 'privacy.html', source: 'privacy.html', priority: '0.3', changefreq: 'yearly' },
+  { url: 'privacy-collectly-jira.html', source: 'content/legal/collectly-jira/privacy.md', priority: '0.3', changefreq: 'yearly' },
+  { url: 'security-collectly-jira.html', source: 'content/legal/collectly-jira/security.md', priority: '0.3', changefreq: 'yearly' },
+  { url: 'terms-collectly-jira.html', source: 'content/legal/collectly-jira/terms.md', priority: '0.3', changefreq: 'yearly' },
+  { url: 'privacy-cyclepulse.html', source: 'content/legal/cyclepulse/privacy.md', priority: '0.3', changefreq: 'yearly' },
+  { url: 'security-cyclepulse.html', source: 'content/legal/cyclepulse/security.md', priority: '0.3', changefreq: 'yearly' },
+  { url: 'terms-cyclepulse.html', source: 'content/legal/cyclepulse/terms.md', priority: '0.3', changefreq: 'yearly' },
+  { url: 'privacy-domainguard.html', source: 'content/legal/domainguard/privacy.md', priority: '0.3', changefreq: 'yearly' },
+  { url: 'security-domainguard.html', source: 'content/legal/domainguard/security.md', priority: '0.3', changefreq: 'yearly' },
+  { url: 'terms-domainguard.html', source: 'content/legal/domainguard/terms.md', priority: '0.3', changefreq: 'yearly' },
+  { url: 'privacy-wishly.html', source: 'content/legal/wishly/privacy.md', priority: '0.3', changefreq: 'yearly' },
+  { url: 'security-wishly.html', source: 'content/legal/wishly/security.md', priority: '0.3', changefreq: 'yearly' },
+  { url: 'terms-wishly.html', source: 'content/legal/wishly/terms.md', priority: '0.3', changefreq: 'yearly' },
+  { url: 'privacy-clientstatus-monday.html', source: 'content/legal/clientstatus-monday/privacy.md', priority: '0.3', changefreq: 'yearly' },
+  { url: 'security-clientstatus-monday.html', source: 'content/legal/clientstatus-monday/security.md', priority: '0.3', changefreq: 'yearly' },
+  { url: 'terms-clientstatus-monday.html', source: 'content/legal/clientstatus-monday/terms.md', priority: '0.3', changefreq: 'yearly' },
+];
 
 const sitemapEntries = [
   ...staticPages.map(p => `  <url>
     <loc>${BASE_URL}/${p.url}</loc>
-    <lastmod>${today}</lastmod>
+    <lastmod>${p.lastmod || getLastMod(p.source)}</lastmod>
     <changefreq>${p.changefreq}</changefreq>
     <priority>${p.priority}</priority>
   </url>`),
@@ -492,8 +543,17 @@ ${sitemapEntries.join('\n')}
 fs.writeFileSync(path.join(ROOT_DIR, 'sitemap.xml'), sitemapXml, 'utf-8');
 console.log('Generated sitemap.xml.');
 
-// 5. Generate robots.txt
-const robotsTxt = `User-agent: *
+// 5. Generate robots.txt (explicitly permitting AI search & citation bots alongside standard crawlers)
+const robotsTxt = `User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: *
 Allow: /
 
 Sitemap: ${BASE_URL}/sitemap.xml
@@ -501,3 +561,38 @@ Sitemap: ${BASE_URL}/sitemap.xml
 
 fs.writeFileSync(path.join(ROOT_DIR, 'robots.txt'), robotsTxt, 'utf-8');
 console.log('Generated robots.txt.');
+
+// 6. Generate llms.txt (v2 machine-readable directory for AI search & developer agents)
+const appsDir = path.join(ROOT_DIR, 'content', 'apps');
+const jiraAppLines = fs.readdirSync(appsDir)
+  .filter(f => f.endsWith('.json'))
+  .sort()
+  .map(f => JSON.parse(fs.readFileSync(path.join(appsDir, f), 'utf-8')))
+  .filter(app => !app.legalOnly)
+  .map(app => `- [${app.title}](${BASE_URL}/${app.file}): ${app.seo.description}`);
+
+const blogLines = articles.map(
+  art => `- [${art.rawTitle}](${BASE_URL}/blog/${art.slug}.html): ${art.rawDescription}`
+);
+
+const llmsTxt = `# NoxVoid Software
+
+> Independent software studio building focused cloud SaaS platforms and 100% Forge-native Atlassian Jira Marketplace applications. Zero bloat, strict tenant isolation, and privacy-first architecture.
+
+## Atlassian Jira & JSM Apps (Runs on Atlassian Forge)
+
+${jiraAppLines.join('\n')}
+
+## Cloud SaaS Platforms
+
+- [ClientStatus](${BASE_URL}/clientstatus.html): Lightweight tokenized client portals and milestone tracking powered by 2-way Google Sheets sync.
+- [Collectly](${BASE_URL}/collectly.html): Frictionless client document collection portals with automated reminders and 1-click ZIP exports.
+- [CaseForge](${BASE_URL}/caseforge.html): Legal document automation and matter pipeline OS for solo practitioners and small law firms.
+
+## Studio Blog & Engineering Notes
+
+${blogLines.join('\n')}
+`;
+
+fs.writeFileSync(path.join(ROOT_DIR, 'llms.txt'), llmsTxt, 'utf-8');
+console.log('Generated llms.txt.');

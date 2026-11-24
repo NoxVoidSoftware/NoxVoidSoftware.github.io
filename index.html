@@ -37,6 +37,7 @@
   <title>NoxVoid Software - Cloud Tools & Jira Ecosystem</title>
   <meta name="description" content="NoxVoid Software builds focused SaaS platforms and Atlassian Jira solutions designed for speed, incident transparency, and workflow automation.">
   <link rel="canonical" href="https://noxvoidsoftware.github.io/">
+  <link rel="describedby" href="https://noxvoidsoftware.github.io/llms.txt">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <meta name="theme-color" content="#0a0f1d">
@@ -65,7 +66,12 @@
         "@id": "https://noxvoidsoftware.github.io/#organization",
         "name": "NoxVoid Software",
         "url": "https://noxvoidsoftware.github.io/",
-        "logo": "https://noxvoidsoftware.github.io/assets/logo.svg",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://noxvoidsoftware.github.io/assets/logo-512.png",
+          "width": 512,
+          "height": 512
+        },
         "sameAs": [
           "https://marketplace.atlassian.com/vendors/401220834/noxvoid-software",
           "https://github.com/NoxVoidSoftware"
@@ -362,6 +368,19 @@
           </div>
 
           <div class="blog-grid">
+            <a href="blog/domainguard-release.html" class="blog-card">
+              <div class="blog-meta">
+                <span>Product Release</span>
+                <span>•</span>
+                <time datetime="2026-11-24">Nov 24, 2026</time>
+                <span>•</span>
+                <span>5 min read</span>
+              </div>
+              <h3 class="blog-card-title">Introducing DomainGuard for Jira Service Management: Automated Customer Domain Routing &amp; Freemail Shield</h3>
+              <p class="blog-card-desc">Map up to 500 email domains per JSM organization, block 30,000+ public providers, isolate unknown domains, and sync existing customers.</p>
+              <span class="product-link">Read article &rarr;</span>
+            </a>
+
             <a href="blog/collectly-3-0-release.html" class="blog-card">
               <div class="blog-meta">
                 <span>Product Release</span>
@@ -372,19 +391,6 @@
               </div>
               <h3 class="blog-card-title">Collectly 3.0 for Jira: Client Forms, Document Requests &amp; BYO Cloud Storage</h3>
               <p class="blog-card-desc">Seven form field types, itemized answer review, automated reminders, and custom AWS S3/Azure/GCS cloud storage.</p>
-              <span class="product-link">Read article &rarr;</span>
-            </a>
-
-            <a href="blog/introducing-noxvoid.html" class="blog-card">
-              <div class="blog-meta">
-                <span>Studio Announcement</span>
-                <span>•</span>
-                <time datetime="2026-11-15">Nov 15, 2026</time>
-                <span>•</span>
-                <span>3 min read</span>
-              </div>
-              <h3 class="blog-card-title">Introducing NoxVoid Software: Building Focused, Resilient Tools</h3>
-              <p class="blog-card-desc">Why we build dedicated single-purpose cloud tools and native Jira solutions instead of bloated enterprise suites.</p>
               <span class="product-link">Read article &rarr;</span>
             </a>
 
@@ -415,17 +421,17 @@
             <div class="values-grid">
               <div class="value-item">
                 <span class="value-num" aria-hidden="true">01</span>
-                <h4>Speed & Reliability</h4>
+                <h3>Speed & Reliability</h3>
                 <p>Lean architectures with instant response times and resilient uptime across all our cloud domains.</p>
               </div>
               <div class="value-item">
                 <span class="value-num" aria-hidden="true">02</span>
-                <h4>Native Ecosystems</h4>
+                <h3>Native Ecosystems</h3>
                 <p>Deep synergy with Atlassian Jira and modern cloud APIs without messy workarounds.</p>
               </div>
               <div class="value-item">
                 <span class="value-num" aria-hidden="true">03</span>
-                <h4>Privacy & Security</h4>
+                <h3>Privacy & Security</h3>
                 <p>Your team's data remains yours. Clear policies, minimal data retention, and no tracking without your consent.</p>
               </div>
             </div>
@@ -568,7 +574,7 @@
 
         <div class="footer-columns">
           <div class="footer-col">
-            <h5>Cloud SaaS</h5>
+            <p class="footer-col-title">Cloud SaaS</p>
             <ul>
               <li><a href="clientstatus.html">ClientStatus</a></li>
               <li><a href="collectly.html">Collectly</a></li>
@@ -577,7 +583,7 @@
           </div>
 
           <div class="footer-col">
-            <h5>Jira Apps</h5>
+            <p class="footer-col-title">Jira Apps</p>
             <ul>
               <li><a href="collectly-jira.html">Collectly for Jira</a></li>
               <li><a href="cyclepulse-jira.html">CyclePulse for Jira</a></li>
@@ -587,7 +593,7 @@
           </div>
 
           <div class="footer-col">
-            <h5>Studio</h5>
+            <p class="footer-col-title">Studio</p>
             <ul>
               <li><a href="blog.html">Blog & Updates</a></li>
               <li><a href="#about">About Us</a></li>
@@ -598,7 +604,7 @@
           </div>
 
           <div class="footer-col">
-            <h5>Legal — Jira Apps</h5>
+            <p class="footer-col-title">Legal — Jira Apps</p>
             <ul>
               <li><a href="privacy-collectly-jira.html">Collectly: Privacy</a></li>
               <li><a href="terms-collectly-jira.html">Collectly: Terms</a></li>

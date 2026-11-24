@@ -32,9 +32,10 @@
   <script defer src="assets/consent.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="color-scheme" content="light dark">
-  <title>ClientStatus: Lightweight Client Portals &amp; Milestone Tracking — NoxVoid Software</title>
-  <meta name="description" content="ClientStatus sits on top of Google Sheets and existing tools to give clients self-serve progress tracking, milestone pipelines, and deliverable downloads with zero logins.">
+  <title>ClientStatus: Client Portals &amp; Milestone Tracking — NoxVoid</title>
+  <meta name="description" content="ClientStatus turns Google Sheets into private client portals with live progress tracking, milestone pipelines, and deliverable downloads — no client logins.">
   <link rel="canonical" href="https://noxvoidsoftware.github.io/clientstatus.html">
+  <link rel="describedby" href="https://noxvoidsoftware.github.io/llms.txt">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <meta name="theme-color" content="#0a0f1d">
@@ -63,13 +64,26 @@
         "@id": "https://noxvoidsoftware.github.io/clientstatus.html#software",
         "name": "ClientStatus",
         "url": "https://noxvoidsoftware.github.io/clientstatus.html",
-        "description": "ClientStatus sits on top of Google Sheets and existing tools to give clients self-serve progress tracking, milestone pipelines, and deliverable downloads with zero logins.",
+        "description": "ClientStatus turns Google Sheets into private client portals with live progress tracking, milestone pipelines, and deliverable downloads — no client logins.",
         "applicationCategory": "BusinessApplication",
         "operatingSystem": "All",
+        "offers": {
+          "@type": "AggregateOffer",
+          "priceCurrency": "USD",
+          "lowPrice": "0",
+          "highPrice": "49",
+          "offerCount": "4"
+        },
         "publisher": {
           "@type": "Organization",
           "name": "NoxVoid Software",
-          "url": "https://noxvoidsoftware.github.io/"
+          "url": "https://noxvoidsoftware.github.io/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://noxvoidsoftware.github.io/assets/logo-512.png",
+            "width": 512,
+            "height": 512
+          }
         }
       },
       {
@@ -166,42 +180,42 @@
 
           <div class="features-list">
             <div class="feature-box">
-              <h4 style="color: var(--accent);">1. Live Google Sheets 2-Way Sync</h4>
+              <h3 style="color: var(--accent);">1. Live Google Sheets 2-Way Sync</h3>
               <p>
                 Connect your spreadsheet with Google OAuth. Update rows in your sheet internally — status percentages, notes, and milestones update on the client portal in real time.
               </p>
             </div>
 
             <div class="feature-box">
-              <h4 style="color: var(--accent);">2. Zero Client Logins</h4>
+              <h3 style="color: var(--accent);">2. Zero Client Logins</h3>
               <p>
                 Clients never have to sign up, remember passwords, or download apps. Each project gets a secure, private tokenized URL (e.g. <code>clientstatus.cloud/c/{token}</code>).
               </p>
             </div>
 
             <div class="feature-box">
-              <h4 style="color: var(--accent);">3. Milestone Progress Timelines</h4>
+              <h3 style="color: var(--accent);">3. Milestone Progress Timelines</h3>
               <p>
                 Visual progress bars (e.g. <em>60% Complete</em>) and custom pipeline stages (<em>Planning</em> &rarr; <em>Design</em> &rarr; <em>Development</em> &rarr; <em>QA</em> &rarr; <em>Delivered</em>).
               </p>
             </div>
 
             <div class="feature-box">
-              <h4 style="color: var(--accent);">4. Deliverable File Sharing</h4>
+              <h3 style="color: var(--accent);">4. Deliverable File Sharing</h3>
               <p>
                 Attach contracts, PDFs, mockups, and final exports directly to client portals with 1-click downloads up to 100 GB.
               </p>
             </div>
 
             <div class="feature-box">
-              <h4 style="color: var(--accent);">5. Timestamped Update Notes</h4>
+              <h3 style="color: var(--accent);">5. Timestamped Update Notes</h3>
               <p>
                 Leave quick progress notes (e.g. <em>"Wireframes approved. Moving to high-fidelity design phase"</em>) without typing repetitive individual client emails.
               </p>
             </div>
 
             <div class="feature-box">
-              <h4 style="color: var(--accent);">6. White-Label Branding</h4>
+              <h3 style="color: var(--accent);">6. White-Label Branding</h3>
               <p>
                 Custom logo, custom brand color themes, and total removal of platform branding on Pro and Enterprise tiers for agencies.
               </p>
@@ -282,7 +296,7 @@
         <!-- Sidebar / Specs -->
         <aside class="product-sidebar">
           <div class="product-sidebar-card">
-            <h4 style="font-size: 1.15rem; color: var(--text-primary); margin-bottom: 0.5rem;">SaaS Specs</h4>
+            <h2 style="font-size: 1.15rem; color: var(--text-primary); margin-bottom: 0.5rem;">SaaS Specs</h2>
             
             <ul class="spec-list">
               <li class="spec-item">

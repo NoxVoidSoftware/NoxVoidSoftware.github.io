@@ -5,10 +5,11 @@
   "legalName": "CyclePulse for Jira",
   "title": "CyclePulse: Time in Status, Lead & Cycle Time Exports",
   "seo": {
-    "title": "CyclePulse: Time in Status, Lead & Cycle Time Exports",
-    "description": "CyclePulse shows how long Jira issues spend in each status and with each assignee, on your real working hours. Spot bottlenecks, track trends, and use metrics in JQL & Automation.",
+    "title": "CyclePulse: Jira Time in Status & Cycle Time",
+    "description": "Measure Jira Time in Status, Lead & Cycle Time on real working hours. Spot bottlenecks and automate with JQL. 100% Forge native. Free ≤10 users.",
     "ogTitle": "CyclePulse: Time in Status, Lead & Cycle Time Exports for Jira Cloud",
-    "ogDescription": "Time in Status, Lead & Cycle Time on real working hours. 100% Forge native on Atlassian Cloud. Free up to 10 users."
+    "ogDescription": "Time in Status, Lead & Cycle Time on real working hours. 100% Forge native on Atlassian Cloud. Free up to 10 users.",
+    "freeTier": true
   },
   "icon": "assets/apps/cyclepulse.svg",
   "badges": [

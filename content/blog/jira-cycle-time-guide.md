@@ -1,5 +1,6 @@
 ---
 title: "How to Measure & Improve Jira Cycle Time Without Micromanaging"
+seoTitle: "Measure & Improve Jira Cycle Time Guide"
 description: "A practical guide for engineering leads on improving Jira cycle time, identifying workflow bottlenecks, and increasing sprint predictability."
 date: "2026-11-16"
 category: "Agile Engineering"

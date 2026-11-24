@@ -6,9 +6,10 @@
   "title": "Collectly: Client Forms & Document Requests for Jira",
   "seo": {
     "title": "Collectly: Client Forms & Document Requests for Jira",
-    "description": "Send clients a secure form for documents and answers, no Jira license needed. Review every answer and request fixes in Jira. Version 3.0.0. Free plan available on Jira Cloud.",
+    "description": "Send clients secure forms & document requests without Jira licenses. Review answers item-by-item, automate reminders, and BYO S3 storage. Free plan.",
     "ogTitle": "Collectly: Client Forms & Document Requests for Jira",
-    "ogDescription": "One secure link. Clients answer and upload without a login; you review every answer in Jira. 7 field types, automated reminders, BYO cloud storage. Free plan available."
+    "ogDescription": "One secure link. Clients answer and upload without a login; you review every answer in Jira. 7 field types, automated reminders, BYO cloud storage. Free plan available.",
+    "freeTier": true
   },
   "icon": "assets/apps/collectly-jira.svg",
   "badges": [

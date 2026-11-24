@@ -1,5 +1,6 @@
 ---
 title: "Introducing NoxVoid Software: Building Focused, Resilient Tools"
+seoTitle: "Introducing NoxVoid Software Studio"
 description: "Why we built NoxVoid Software: creating dedicated cloud platforms and native Atlassian Jira solutions designed for speed and reliability."
 date: "2026-11-15"
 category: "Studio Announcement"

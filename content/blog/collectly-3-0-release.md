@@ -1,6 +1,7 @@
 ---
 title: "Collectly 3.0 for Jira: Client Forms, Document Requests & BYO Cloud Storage"
-description: "Announcing Collectly 3.0 on Atlassian Marketplace: seven form field types, item-by-item answer approvals, automated reminder emails, and BYO AWS S3/Azure/GCS storage."
+seoTitle: "Collectly 3.0 for Jira: Forms & BYO Storage"
+description: "Announcing Collectly 3.0 on Atlassian Marketplace: 7 form field types, item-by-item approvals, automated reminders, and BYO S3/Azure/GCS storage."
 date: "2026-11-16"
 category: "Product Release"
 readTime: "4 min read"

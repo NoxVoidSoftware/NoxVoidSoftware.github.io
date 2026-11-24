@@ -219,37 +219,50 @@ ${buttons.join('\n')}
 
 function buildAppJsonLd(app) {
   const url = `${BASE_URL}/${app.file}`;
-  const iconUrl = app.icon ? `${BASE_URL}/${app.icon.replace(/^\//, '')}` : `${BASE_URL}/assets/logo-512.png`;
+  const imageUrl = app.seo?.iconPng
+    ? `${BASE_URL}/${app.seo.iconPng.replace(/^\//, '')}`
+    : `${BASE_URL}/assets/logo-512.png`;
+
+  const softwareNode = {
+    '@type': 'WebApplication',
+    '@id': `${url}#software`,
+    'name': app.legalName || app.name,
+    'alternateName': app.name,
+    'url': url,
+    'description': app.seo.description || app.lead,
+    'applicationCategory': 'BusinessApplication',
+    'operatingSystem': 'Atlassian Cloud / Web Browser',
+    'browserRequirements': 'Requires JavaScript. Compatible with all modern browsers.',
+    'isAccessibleForFree': Boolean(app.seo?.freeTier),
+    'image': imageUrl,
+    'publisher': {
+      '@type': 'Organization',
+      '@id': `${BASE_URL}/#organization`,
+      'name': 'NoxVoid Software',
+      'url': BASE_URL,
+      'logo': {
+        '@type': 'ImageObject',
+        'url': `${BASE_URL}/assets/logo-512.png`,
+        'width': 512,
+        'height': 512
+      }
+    }
+  };
+
+  if (app.seo?.freeTier) {
+    softwareNode.offers = {
+      '@type': 'Offer',
+      'price': '0',
+      'priceCurrency': 'USD',
+      'availability': 'https://schema.org/InStock',
+      'url': app.marketplace?.url || url
+    };
+  }
 
   const schema = {
     '@context': 'https://schema.org',
     '@graph': [
-      {
-        '@type': 'WebApplication',
-        '@id': `${url}#software`,
-        'name': app.legalName || app.name,
-        'alternateName': app.name,
-        'url': url,
-        'description': app.seo.description || app.lead,
-        'applicationCategory': 'BusinessApplication',
-        'operatingSystem': 'Atlassian Cloud / Web Browser',
-        'browserRequirements': 'Requires JavaScript. Compatible with all modern browsers.',
-        'image': iconUrl,
-        'publisher': {
-          '@type': 'Organization',
-          '@id': `${BASE_URL}/#organization`,
-          'name': 'NoxVoid Software',
-          'url': BASE_URL,
-          'logo': `${BASE_URL}/assets/logo.svg`
-        },
-        'offers': {
-          '@type': 'Offer',
-          'price': '0',
-          'priceCurrency': 'USD',
-          'availability': 'https://schema.org/InStock',
-          'url': app.marketplace?.url || url
-        }
-      },
+      softwareNode,
       {
         '@type': 'BreadcrumbList',
         '@id': `${url}#breadcrumb`,
@@ -321,12 +334,13 @@ ${JSON.stringify(schema, null, 2)}
 
 function renderProductPage(app) {
   return `${head({
-    title: `${app.seo.title} — NoxVoid Software`,
+    title: `${app.seo.title} — NoxVoid`,
     description: app.seo.description,
     path: app.file,
     ogType: 'product',
     ogTitle: app.seo.ogTitle,
     ogDescription: app.seo.ogDescription,
+    ogImage: app.seo.ogImage,
     extraHead: buildAppJsonLd(app),
   })}${siteHeader('jira')}
     <main>
