@@ -57,7 +57,7 @@
     },
     {
       "title": "Easy Sign-in for Voters",
-      "text": "Voters confirm with a one-time email link or continue with **Google** or **GitHub**. No passwords, no Atlassian account."
+      "text": "Voters confirm with a one-time email link or continue with **Google** or **GitHub**. Wishly reads only the verified email address, uses it only to confirm the vote and send the updates the voter asked for, and never shows it publicly. No passwords, no Atlassian account."
     },
     {
       "title": "Spam & Abuse Protection",

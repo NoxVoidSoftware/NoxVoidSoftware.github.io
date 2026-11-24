@@ -33,6 +33,17 @@ The Portal does not receive other Jira fields, comments, attachments, or user da
 - **Network information**: the visitor's IP address is used only to compute a hash that changes every day, for rate limiting and abuse detection. We do not store raw IP addresses.
 - **Cookies**: a signed cookie that remembers the visitor's votes on that Portal (valid for one year), and a short-lived cookie (about 10 minutes) that protects Google/GitHub sign-in. We use no advertising or analytics cookies.
 
+## Google user data
+
+When a Portal visitor chooses **Continue with Google**, the App requests only the `openid` and `email` scopes. From Google we receive the visitor's email address and whether Google has verified it. We do not request or receive the visitor's name, profile photo, contacts, Gmail, Drive, or any other Google data.
+
+- **How we use it:** only to confirm the visitor's email address on that Portal, exactly as a one-time email link would, so their vote counts as a confirmed vote and they can receive the status updates they asked for.
+- **How we store it:** the email address is stored with the visitor's votes in the Portal database on Cloudflare. Google access tokens are used once to read the email address and are never stored.
+- **How we share it:** we do not share, sell, or transfer Google user data to anyone, other than the subprocessors listed below that host the Portal and send the emails. It is never shown on the Portal, written to Jira, or used for advertising, profiling, or training AI models.
+- **Retention and deletion:** as described under "Data retention & deletion" below. A visitor can ask for their data to be deleted at any time by writing to the address at the end of this policy.
+
+Wishly's use and transfer of information received from Google APIs adheres to the [Google API Services User Data Policy](https://developers.google.com/terms/api-services-user-data-policy), including the Limited Use requirements.
+
 ## How we use data
 
 We use the data above only to provide the App:
