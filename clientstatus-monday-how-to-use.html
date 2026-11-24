@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>How to use ClientStatus for monday.com</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <style>
+    :root { --ink: #1a1c19; --muted: #5c665f; --line: #e2e5e0; --brand: #2d4a3e; --bg: #f9f9f6; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif; }
+    main { max-width: 860px; margin: 0 auto; padding: 32px 24px 56px; }
+    h1 { font-size: 28px; line-height: 1.25; margin: 0 0 8px; }
+    h2 { font-size: 20px; margin: 40px 0 8px; }
+    p, li { color: var(--muted); }
+    strong { color: var(--ink); }
+    ol, ul { padding-left: 22px; }
+    li + li { margin-top: 6px; }
+    figure { margin: 16px 0 0; }
+    img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 12px; background: #fff; }
+    figcaption { font-size: 13px; color: var(--muted); margin-top: 6px; }
+    code { background: #eef0ec; padding: 1px 6px; border-radius: 6px; font-size: 14px; color: var(--ink); }
+    .lead { font-size: 17px; }
+    .note { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 14px 18px; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>How to use ClientStatus for monday.com</h1>
+  <p class="lead">ClientStatus gives each of your clients a private, branded page with the status of their own tasks from your monday.com board. Clients don't need a monday.com account, and they only see what is theirs.</p>
+
+  <h2>Before you start</h2>
+  <ul>
+    <li>A monday.com board with your client work, with a <strong>Status</strong> column. The status labels are what your client sees.</li>
+    <li>Optional: a column that names each task's client (text, dropdown or status), a date column for due dates, and email or phone columns for client contacts.</li>
+    <li>Installing the app needs a monday.com admin, or a member if your account lets members install apps.</li>
+  </ul>
+
+  <h2>1. Install and authorize</h2>
+  <ol>
+    <li>Install <strong>ClientStatus</strong> from the monday.com apps marketplace.</li>
+    <li>On your board, click <strong>+</strong> next to the board views and add the <strong>ClientStatus</strong> view.</li>
+    <li>Click <strong>Authorize ClientStatus</strong>. A small window opens; approve access and it closes by itself. There is no separate sign-up: your ClientStatus workspace is created for your monday.com account.</li>
+  </ol>
+  <figure>
+    <img src="assets/clientstatus-monday/welcome.png" alt="The ClientStatus board view before authorizing: three steps and an example of a client's page" loading="lazy">
+    <figcaption>The first screen of the board view.</figcaption>
+  </figure>
+
+  <h2>2. Pick the columns</h2>
+  <p>Tell ClientStatus who the client is:</p>
+  <ul>
+    <li><strong>One client</strong>: the whole board belongs to one client, who gets one link with every task.</li>
+    <li><strong>A client per task</strong>: a column names each task's client; every client gets a link with only their tasks.</li>
+    <li><strong>Decide later</strong>: every task gets its own link, and you can link clients on the ClientStatus website.</li>
+  </ul>
+  <p>Then choose the <strong>Status</strong> column, and optionally the due date and note columns. Click <strong>Save</strong>: the items are imported, and from then on changes in monday.com show on the client pages within seconds.</p>
+  <figure>
+    <img src="assets/clientstatus-monday/setup.png" alt="Client portal settings: who the client is and which columns the client sees" loading="lazy">
+    <figcaption>Board settings. You can change them later with the ⚙ button.</figcaption>
+  </figure>
+
+  <h2>3. Send each client their link</h2>
+  <p>The board view lists your clients with their links. Click <strong>Copy link</strong> and send it to the client the way you usually do (email, chat). ClientStatus never emails your clients itself.</p>
+  <figure>
+    <img src="assets/clientstatus-monday/board.png" alt="The board view with a link for each client" loading="lazy">
+    <figcaption>One link per client. Disable a link at any time; enable it again to bring it back.</figcaption>
+  </figure>
+  <p>Every item also has its own link: open an item and the <strong>ClientStatus link</strong> tab in the item view.</p>
+  <figure>
+    <img src="assets/clientstatus-monday/item.png" alt="The item view with the task's client link" loading="lazy">
+  </figure>
+
+  <h2>What your client sees</h2>
+  <p>A clean page with your workspace's name and logo, the progress of each task, its status and due date, and a place to comment. Comments arrive in monday.com as item updates.</p>
+  <figure>
+    <img src="assets/clientstatus-monday/client-demo.png" alt="An example client page with six tasks, their statuses, progress and due dates" loading="lazy">
+    <figcaption>An example client page.</figcaption>
+  </figure>
+
+  <h2>Tips</h2>
+  <ul>
+    <li>Write <code>#client</code> in an item's update to show it to the client. Other updates stay internal.</li>
+    <li>Change a status, due date or client in monday.com or on the ClientStatus website: both stay in sync.</li>
+    <li><strong>Sync now</strong> imports everything again if you changed many items at once.</li>
+    <li><strong>Manage on ClientStatus</strong> opens the full website, where you set your logo and colors, manage clients and your team.</li>
+    <li>Users with view-only access in monday.com can copy and open client links; board members change the settings.</li>
+  </ul>
+
+  <h2>Plans</h2>
+  <p>The free plan covers up to 10 active tasks. Closed tasks are always shown. To add more, choose a plan with <strong>Upgrade</strong> in the app; billing is handled by monday.com.</p>
+
+  <h2>Uninstalling</h2>
+  <p>When you uninstall the app, the connection to monday.com is removed at once and your client links keep working. If you don't install it again within 10 days, the data imported from your boards is deleted.</p>
+
+  <div class="note">
+    <p><strong>Need help?</strong> Write to <a href="mailto:support@clientstatus.cloud">support@clientstatus.cloud</a>.</p>
+  </div>
+</main>
+</body>
+</html>
